@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Evergreen Collective</title>
+    <meta name="description" content="Home - Evergreen Collective" />
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico" />
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+</head>
+<body>
+<div hx-get="/nav.html" hx-swap="innerHTML" hx-trigger="load">
+    HELLO
+</div>
+<div hx-get="/footer.html" hx-swap="innerHTML" hx-trigger="revealed">
+    HI
+</div>
+</body>
+</html>
