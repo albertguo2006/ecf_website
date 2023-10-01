@@ -26,6 +26,46 @@ body {
     flex-direction: column;
 }
 
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: darkgrey;
+    padding: 1.5em 1em 1.5em 2em;
+}
+
+nav img {
+    width: 10vh;
+}
+
+nav ul {
+    list-style: none;
+    margin: auto 0 auto auto;
+}
+
+nav li {
+    display: inline;
+    padding: 0 2.5em;
+    font-size: 2.4vh;
+    /*height: 100%;*/
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: var(--link-blue);
+}
+
+nav .current {
+
+}
+
+nav .donate {
+    background-color: var(--ecf-green);
+}
+
 .content {
     flex: 1 0 auto;
 }
@@ -59,7 +99,6 @@ body {
     align-items: center;
     justify-content: space-evenly;
     margin: 2em 0 0;
-    /*font-size: 2.5vh;*/
 }
 
 .footer .socials a {

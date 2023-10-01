@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    flex-direction: row;;
+}
+
+.nav ul {
+    /*list-style: none;*/
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav .current {
+
+}
