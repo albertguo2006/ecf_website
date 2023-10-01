@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>Evergreen Collective</title>
-    <meta name="description" content="Home - Evergreen Collective" />
-    <link rel="icon" type="image/x-icon" href="assets/icon.ico" />
-    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <meta name="description" content="Home - Evergreen Collective"/>
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico"/>
+    <!-- FontAwesome -->
+    <script defer src="/assets/fontawesome/js/brands.js"></script>
+    <script defer src="/assets/fontawesome/js/regular.js"></script>
+    <script defer src="/assets/fontawesome/js/fontawesome.js"></script>
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand&display=swap" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand&display=swap"
+          rel="stylesheet">
+    <!-- Our stylesheet -->
+    <link href="css/styles.css" rel="stylesheet"/>
 </head>
 <body>
-<div hx-get="/nav.html" hx-swap="innerHTML" hx-trigger="load">
-    HELLO
+<div class="content">
+    <!--Note that we might want to get the images for the site asynchronously to improve ux (especially since the photos are going to be full screen-->
 </div>
-<div hx-get="/footer.html" hx-swap="innerHTML" hx-trigger="revealed">
-    HI
-</div>
+<footer id="ecf-footer" class="footer">
+    <div class="contact">
+        <h1>CONTACT US</h1>
+    </div>
+    <div class="socials">
+        <a href="mailto:evergreencollectivefound@gmail.com"><i
+                class="fa-regular fa-envelope fa-2xl"></i></a>
+        <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i
+                class="fa-brands fa-facebook-f fa-2xl"></i></a>
+        <a href="https://www.instagram.com/evergreencollect/"><i
+                class="fa-brands fa-instagram fa-2xl"></i></a>
+        <a href="https://ca.linkedin.com/company/evergreencollective"><i
+                class="fa-brands fa-linkedin-in fa-2xl"></i></a>
+    </div>
+</footer>
 </body>
 </html>
