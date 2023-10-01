@@ -1,6 +1,6 @@
 :root {
     --ecf-green: #749B88;
-    --ecf-orange: #FC6467;
+    --ecf-red: #FC6467;
     --link-blue: #2F80ED;
 }
 
@@ -10,11 +10,20 @@
 }
 
 h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 h2 {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
+}
+
+a {
+    font-family: "Quicksand", sans-serif;
+    color: white;
+}
+
+a:hover {
+    color: var(--link-blue);
 }
 
 html, body {
@@ -24,42 +33,63 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 nav {
     display: flex;
     flex-direction: row;
     background-color: darkgrey;
-    padding: 1.5em 1em 1.5em 2em;
 }
 
 nav img {
-    width: 10vh;
+    height: 10vh;
+    margin: 1em 0 1em 2em;
 }
 
 nav ul {
     list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 0.25vw;
+    width: 70%;
+    height: 100%;
     margin: auto 0 auto auto;
-}
-
-nav li {
-    display: inline;
-    padding: 0 2.5em;
-    font-size: 2.4vh;
-    /*height: 100%;*/
+    background-color: silver; /* Acts as the border colour */
 }
 
 nav li a {
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-}
-
-nav li a:hover {
-    color: var(--link-blue);
+    height: 100%;
+    color: white;
+    background-color: darkgoldenrod;
 }
 
 nav .current {
+    /* TODO Style this when selected */
+}
 
+nav .dropdown {
+    display: none;
+    position: absolute;
+    background-color: orange;
+    /*TODO Fix div size relative to "about us"*/
+    width: 11.5em;
+    z-index: 1;
+}
+
+/* IDK why this works to show the dropdown, but it does, so don't remove this unless a better solution is found */
+nav li:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    padding: 1rem;
+    border-top: 0.025rem solid black;
+    text-align: center;
 }
 
 nav .donate {
@@ -89,7 +119,7 @@ nav .donate {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    font-size: 2.5vh;
+    font-size: 2vh;
     margin: 1em 0;
 }
 
@@ -99,12 +129,4 @@ nav .donate {
     align-items: center;
     justify-content: space-evenly;
     margin: 2em 0 0;
-}
-
-.footer .socials a {
-    color: white;
-}
-
-.footer .socials a:hover {
-    color: var(--link-blue);
 }

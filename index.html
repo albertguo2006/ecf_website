@@ -9,6 +9,7 @@
     <!-- FontAwesome -->
     <script defer src="/assets/fontawesome/js/brands.js"></script>
     <script defer src="/assets/fontawesome/js/regular.js"></script>
+    <script defer src="/assets/fontawesome/js/solid.js"></script>
     <script defer src="/assets/fontawesome/js/fontawesome.js"></script>
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +25,17 @@
     <ul>
         <li><a class="current" href="/">HOME</a></li>
         <li><a href="/get-involved">GET INVOLVED</a></li>
-        <li><a href="/about-us">ABOUT US</a></li>
+        <li>
+            <!-- The spacing here is to make the caret down actually look good-->
+            <a href="/about-us">ABOUT US&nbsp;&nbsp;<i class="fa-solid fa-caret-down"></i></a>
+            <div class="dropdown">
+                <a href="/about-us/Canada/AB/">AB - Canada</a>
+                <a href="/about-us/Canada/BC/">BC - Canada</a>
+                <a href="/about-us/Canada/ON/">ON - Canada</a>
+                <a href="/about-us/Canada/SK/">SK - Canada</a>
+                <a href="/about-us/Turkey/">Turkey</a>
+            </div>
+        </li>
         <li><a href="https://blog.evergreencollective.ca">BLOG</a></li>
         <li><a class="donate" href="/donate">DONATE</a></li>
     </ul>
