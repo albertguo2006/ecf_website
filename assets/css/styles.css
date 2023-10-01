@@ -34,7 +34,10 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: lightblue;
 }
+
+/* TODO: Fix the nav colours. They look terrible rn */
 
 nav {
     display: flex;
@@ -44,7 +47,7 @@ nav {
 
 nav img {
     height: 10vh;
-    margin: 1em 0 1em 2em;
+    padding: 1em 0 1em 2em;
 }
 
 nav ul {
@@ -58,14 +61,22 @@ nav ul {
     background-color: silver; /* Acts as the border colour */
 }
 
+nav li {
+    position: relative;
+}
+
 nav li a {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     height: 100%;
-    color: white;
-    background-color: darkgoldenrod;
+    color: black;
+    background-color: white;
+}
+
+nav li a:hover {
+    color: var(--ecf-green);
 }
 
 nav .current {
@@ -75,8 +86,7 @@ nav .current {
 nav .nav-dropdown {
     display: none;
     position: absolute;
-    width: 20%;
-    z-index: 1;
+    width: 100%;
 }
 
 /* IDK why this works to show the dropdown, but it does, so don't remove this unless a better solution is found */
@@ -87,8 +97,9 @@ nav li:hover .nav-dropdown {
 }
 
 nav .nav-dropdown a {
-    padding: 0.75rem;
-    text-align: center;
+    padding: 0.75vw 2.5vw;
+    /*text-align: center;*/
+    justify-content: left;
     border: 0.005rem solid white;
     border-radius: 0.25rem;
 }
