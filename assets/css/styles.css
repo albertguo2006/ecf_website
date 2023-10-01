@@ -72,24 +72,25 @@ nav .current {
     /* TODO Style this when selected */
 }
 
-nav .dropdown {
+nav .nav-dropdown {
     display: none;
     position: absolute;
-    background-color: orange;
-    /*TODO Fix div size relative to "about us"*/
-    width: 11.5em;
+    width: 20%;
     z-index: 1;
 }
 
 /* IDK why this works to show the dropdown, but it does, so don't remove this unless a better solution is found */
-nav li:hover .dropdown {
-    display: block;
+nav li:hover .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.05vh;
 }
 
-.dropdown a {
-    padding: 1rem;
-    border-top: 0.025rem solid black;
+nav .nav-dropdown a {
+    padding: 0.75rem;
     text-align: center;
+    border: 0.005rem solid white;
+    border-radius: 0.25rem;
 }
 
 nav .donate {
