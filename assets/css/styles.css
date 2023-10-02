@@ -2,6 +2,7 @@
     --ecf-green: #749B88;
     --ecf-red: #FC6467;
     --link-blue: #2F80ED;
+    --border-color: silver;
 }
 
 * {
@@ -13,12 +14,13 @@ h1 {
     font-family: "Montserrat", sans-serif;
 }
 
-h2 {
+a, h2 {
     font-family: "Quicksand", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
 }
 
 a {
-    font-family: "Quicksand", sans-serif;
     color: white;
 }
 
@@ -37,7 +39,6 @@ body {
     background-color: lightblue;
 }
 
-/* TODO: Fix the nav colours. They look terrible rn */
 
 nav {
     display: flex;
@@ -46,7 +47,7 @@ nav {
 }
 
 nav img {
-    height: 10vh;
+    height: 8vh;
     padding: 1em 0 1em 2em;
 }
 
@@ -54,11 +55,11 @@ nav ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 0.25vw;
+    grid-gap: 0.15vw;
     width: 70%;
     height: 100%;
     margin: auto 0 auto auto;
-    background-color: silver; /* Acts as the border colour */
+    background-color: var(--border-color);
 }
 
 nav li {
@@ -79,33 +80,59 @@ nav li a:hover {
     color: var(--ecf-green);
 }
 
-nav .current {
+.current {
     /* TODO Style this when selected */
 }
 
-nav .nav-dropdown {
+.nav-dropdown {
     display: none;
     position: absolute;
     width: 100%;
 }
 
+.fa-caret-up {
+    display: none;
+}
+
 /* IDK why this works to show the dropdown, but it does, so don't remove this unless a better solution is found */
-nav li:hover .nav-dropdown {
+li:hover .nav-dropdown, li:hover .fa-caret-up {
     display: flex;
     flex-direction: column;
-    row-gap: 0.05vh;
+    /*row-gap: 0.05vh;*/
 }
 
-nav .nav-dropdown a {
-    padding: 0.75vw 2.5vw;
-    /*text-align: center;*/
+li:hover .fa-caret-down {
+    display: none;
+}
+
+.nav-dropdown-border {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.75vw;
+    background-color: white;
+}
+
+.nav-dropdown-content {
+    display: flex;
+    row-gap: 0.15rem;
+    flex-direction: column;
+    background-color: var(--border-color);
+}
+
+.nav-dropdown-content a {
+    padding: 0.75vw;
     justify-content: left;
-    border: 0.005rem solid white;
-    border-radius: 0.25rem;
+    /*text-align: center;*/
+    /*border: 0.005rem solid white;*/
+    /*border-radius: 0.25rem;*/
 }
 
-nav .donate {
+.donate {
     background-color: var(--ecf-green);
+}
+
+.donate:hover {
+    background-color: black;
 }
 
 .content {
