@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <title>Evergreen Collective</title>
     <meta name="description" content="Home - Evergreen Collective"/>
-    <link rel="icon" type="image/x-icon" href="assets/icon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/assets/icon.ico"/>
     <!-- FontAwesome -->
     <script defer src="/assets/fontawesome/js/brands.js"></script>
     <script defer src="/assets/fontawesome/js/regular.js"></script>
@@ -17,53 +17,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand&display=swap"
           rel="stylesheet">
     <!-- Our stylesheet and scripts -->
-    <link href="assets/css/styles.css" rel="stylesheet"/>
+    <link href="/assets/css/styles.css" rel="stylesheet"/>
+    <script defer src="/assets/js/layout.js"></script>
 </head>
 <body>
-<nav>
-    <a class="logo" href="/"><img src="assets/icon.ico" alt="Evergreen Collective's logo"></a>
-    <ul>
-        <li class="nav-home-border"><a class="current" href="/">HOME</a></li>
-        <li><a href="/get-involved">GET INVOLVED</a></li>
-        <li>
-            <!-- The spacing here is to make the caret down actually look good-->
-            <a id="nav-about" href="/about-us">ABOUT US&nbsp;&nbsp;
-                <i class="fa-solid fa-caret-down"></i>
-                <i class="fa-solid fa-caret-up"></i>
-            </a>
-            <div class="nav-dropdown">
-                <div class="nav-dropdown-border">
-                    <div class="nav-dropdown-content">
-                        <a href="/about-us/Canada/AB/">AB - Canada</a>
-                        <a href="/about-us/Canada/BC/">BC - Canada</a>
-                        <a href="/about-us/Canada/ON/">ON - Canada</a>
-                        <a href="/about-us/Canada/SK/">SK - Canada</a>
-                        <a href="/about-us/Turkey/">Turkey</a>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li><a href="https://blog.evergreencollective.ca">BLOG</a></li>
-        <li class="nav-donate-border"><a class="nav-donate" href="/donate">DONATE</a></li>
-    </ul>
-</nav>
-<div class="content">
-    <!--Note that we might want to get the images for the site asynchronously to improve ux (especially since the photos are going to be full screen-->
-</div>
-<footer id="ecf-footer" class="footer">
-    <div class="contact">
-        <h1>CONTACT US</h1>
-    </div>
-    <div class="socials">
-        <a href="mailto:evergreencollectivefound@gmail.com"><i
-                class="fa-regular fa-envelope fa-2xl"></i></a>
-        <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i
-                class="fa-brands fa-facebook-f fa-2xl"></i></a>
-        <a href="https://www.instagram.com/evergreencollect/"><i
-                class="fa-brands fa-instagram fa-2xl"></i></a>
-        <a href="https://ca.linkedin.com/company/evergreencollective"><i
-                class="fa-brands fa-linkedin-in fa-2xl"></i></a>
-    </div>
-</footer>
+<ecf-wrapper>
+    <!--Note that we might want to get the images for the site lazily to improve ux (especially since the images are going to be full screen-->
+</ecf-wrapper>
 </body>
 </html>

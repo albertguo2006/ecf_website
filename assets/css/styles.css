@@ -33,13 +33,12 @@ html, body {
     height: 100%;
 }
 
-body {
+body, .wrapper {
     /* Flex to ensure sticky footer */
     display: flex;
     flex-direction: column;
     height: 100%;
     /* Remember to substitute this when testing the bounds of the nav! */
-    /*background-color: lightblue;*/
 }
 
 /* Nav start */
@@ -104,7 +103,7 @@ nav li a:hover {
     color: var(--ecf-green);
 }
 
-.current {
+.nav-current {
     /*
      We indicate the current page using a bottom green border.
      This works as the element containing the content is smaller than the actual nav, but with top and bottom borders.
@@ -193,6 +192,7 @@ See more in .current
 
 .content {
     /* Default sticky footer stuff*/
+    display: flex;
     flex: 1 0 auto;
 }
 
