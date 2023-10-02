@@ -43,27 +43,38 @@ body {
 nav {
     display: flex;
     flex-direction: row;
-    background-color: darkgrey;
+    height: 12vh;
+    width: 100vw;
+    background-color: white;
 }
 
 nav img {
     height: 8vh;
-    padding: 1em 0 1em 2em;
+    padding: 2vh 0 2vh 2vw;
 }
 
 nav ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 0.15vw;
+    /* No grid gap in favour of borders for each individual li */
     width: 70%;
-    height: 100%;
+    height: 12vh;
     margin: auto 0 auto auto;
     background-color: var(--border-color);
 }
 
 nav li {
     position: relative;
+    border-top: 1.5vh solid white;
+    border-bottom: 1.5vh solid white;
+    /* This specific border behaviour causes weird artifacting, but I think I prefer it this way*/
+    border-left: 0.007vw solid var(--border-color);
+    border-right: 0.007vw solid var(--border-color);
+}
+
+.nav-home-border {
+    border-left: 0;
 }
 
 nav li a {
@@ -81,7 +92,7 @@ nav li a:hover {
 }
 
 .current {
-    /* TODO Style this when selected */
+    border-bottom: 1.5vh solid var(--ecf-green);
 }
 
 .nav-dropdown {
@@ -98,13 +109,17 @@ nav li a:hover {
 li:hover .nav-dropdown, li:hover .fa-caret-up {
     display: flex;
     flex-direction: column;
-    /*row-gap: 0.05vh;*/
 }
 
 li:hover .fa-caret-down {
     display: none;
 }
 
+/*
+We use separate elements for border and content because we need them to be a different colour
+While the border is white, the gap between the content isn't.
+Trying to put these two requirements in the same element would be a pain, and it's probably just easier to use two divs
+*/
 .nav-dropdown-border {
     display: flex;
     flex-direction: column;
@@ -122,17 +137,30 @@ li:hover .fa-caret-down {
 .nav-dropdown-content a {
     padding: 0.75vw;
     justify-content: left;
-    /*text-align: center;*/
-    /*border: 0.005rem solid white;*/
-    /*border-radius: 0.25rem;*/
 }
 
-.donate {
+.nav-donate-border {
+    border-top: 1.5vh solid var(--ecf-green);
+    border-bottom: 1.5vh solid var(--ecf-green);
+}
+
+.nav-donate-border:hover {
+    border-top: 1.5vh solid black;
+    border-bottom: 1.5vh solid black;
+}
+
+.nav-donate {
     background-color: var(--ecf-green);
 }
 
-.donate:hover {
+.nav-donate-border:hover .nav-donate {
     background-color: black;
+    /*
+    We need to specifically specify this here as the default behaviour at the time of writing is to only
+    change the colour of the text upon text hover. That's too late for this instance,
+    where we need the colour of the text to change upon border hover
+    */
+    color: var(--ecf-green);
 }
 
 .content {
