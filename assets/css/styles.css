@@ -3,6 +3,7 @@
     --ecf-red: #FC6467;
     --link-blue: #2F80ED;
     --border-color: silver;
+    --nav-height: 12vh;
 }
 
 * {
@@ -16,7 +17,7 @@ h1 {
 
 a, h2 {
     font-family: "Quicksand", sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.4vw;
     font-weight: 600;
 }
 
@@ -33,22 +34,26 @@ html, body {
 }
 
 body {
+    /* Flex to ensure sticky footer */
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: lightblue;
+    /* Remember to substitute this when testing the bounds of the nav! */
+    /*background-color: lightblue;*/
 }
 
-
+/* Nav start */
+/* TODO mobile nav */
 nav {
     display: flex;
     flex-direction: row;
-    height: 12vh;
+    height: var(--nav-height);
     width: 100vw;
     background-color: white;
 }
 
 nav img {
+    /* Ensure that height does not exceed var(--nav-height) */
     height: 8vh;
     padding: 2vh 0 2vh 2vw;
 }
@@ -58,26 +63,34 @@ nav ul {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /* No grid gap in favour of borders for each individual li */
+    /* width of 70% to ensure some spacing between the logo and everything else */
     width: 70%;
-    height: 12vh;
+    height: 100%;
+    /* The nice and handy align left */
     margin: auto 0 auto auto;
-    background-color: var(--border-color);
 }
 
 nav li {
+    /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
     position: relative;
+    /* Borders are used to help denote what is the current page. See more in .current */
     border-top: 1.5vh solid white;
     border-bottom: 1.5vh solid white;
-    /* This specific border behaviour causes weird artifacting, but I think I prefer it this way*/
+    /*
+    This specific border behaviour causes weird artifacting, but I think I prefer it this way.
+    No specific reason why these border sizes were chose, just ensure that they are the same
+    */
     border-left: 0.007vw solid var(--border-color);
     border-right: 0.007vw solid var(--border-color);
 }
 
 .nav-home-border {
+    /* We don't want a left divider on the left most element */
     border-left: 0;
 }
 
 nav li a {
+    /* Just positioning for nav links */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,9 +105,19 @@ nav li a:hover {
 }
 
 .current {
+    /*
+     We indicate the current page using a bottom green border.
+     This works as the element containing the content is smaller than the actual nav, but with top and bottom borders.
+     This allows us to just change tho colour of the border to indicate the current page.
+     However, this does come with the tradeoff that when the border is clicked (specifically the default top and bottom borders),
+     the link that the border is clicking will not be clicked.
+     This seems like a worthy tradeoff though,
+     as the only noticeable affected area is the tiny bit between the top of the screen and the respective nav element.
+    */
     border-bottom: 1.5vh solid var(--ecf-green);
 }
 
+/* Some stuff to affect the display of the dropdown/caret icon */
 .nav-dropdown {
     display: none;
     position: absolute;
@@ -105,10 +128,8 @@ nav li a:hover {
     display: none;
 }
 
-/* IDK why this works to show the dropdown, but it does, so don't remove this unless a better solution is found */
 li:hover .nav-dropdown, li:hover .fa-caret-up {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }
 
 li:hover .fa-caret-down {
@@ -118,7 +139,8 @@ li:hover .fa-caret-down {
 /*
 We use separate elements for border and content because we need them to be a different colour
 While the border is white, the gap between the content isn't.
-Trying to put these two requirements in the same element would be a pain, and it's probably just easier to use two divs
+Trying to put these two requirements in the same element would be a pain, and it's probably just easier to use two divs.
+This also has the added benefit of still showing the dropdown contents even when the mouse is slightly outside of it.
 */
 .nav-dropdown-border {
     display: flex;
@@ -129,19 +151,27 @@ Trying to put these two requirements in the same element would be a pain, and it
 
 .nav-dropdown-content {
     display: flex;
-    row-gap: 0.15rem;
     flex-direction: column;
+    row-gap: 0.15rem;
     background-color: var(--border-color);
 }
 
 .nav-dropdown-content a {
+    /* Slightly off left effect */
     padding: 0.75vw;
     justify-content: left;
 }
 
+/*
+Borders are used to help denote what is the current page.
+Unlike all other elements, the default for this is green.
+See more in .current
+*/
 .nav-donate-border {
     border-top: 1.5vh solid var(--ecf-green);
     border-bottom: 1.5vh solid var(--ecf-green);
+    /* If we don't remove this, the right of the screen will have a tiny white border*/
+    border-right: 0;
 }
 
 .nav-donate-border:hover {
@@ -153,20 +183,21 @@ Trying to put these two requirements in the same element would be a pain, and it
     background-color: var(--ecf-green);
 }
 
+/* We listen to the hover of the border as we want uniform transitions in .nav-donate when the border is hovered */
 .nav-donate-border:hover .nav-donate {
     background-color: black;
-    /*
-    We need to specifically specify this here as the default behaviour at the time of writing is to only
-    change the colour of the text upon text hover. That's too late for this instance,
-    where we need the colour of the text to change upon border hover
-    */
     color: var(--ecf-green);
 }
 
+/* Nav end */
+
 .content {
+    /* Default sticky footer stuff*/
     flex: 1 0 auto;
 }
 
+/* Footer start */
+/* TODO minor adjustments for mobile footer*/
 .footer {
     /* TODO: USE THIS INSTEAD OF BACKGROUND COLOUR WHEN IT IS AVAILABLE
     background-image: url("/assets/footer.png");
@@ -174,26 +205,26 @@ Trying to put these two requirements in the same element would be a pain, and it
     background-color: var(--ecf-green);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    row-gap: 7vh;
     width: 100vw;
+    padding: 5vh 0;
     color: white;
-    padding: 2em 0 3em;
-    text-align: center;
 }
 
-.footer .contact {
+.contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     width: 100%;
-    font-size: 2vh;
-    margin: 1em 0;
+    font-size: 1.4vw;
 }
 
-.footer .socials {
+.socials {
     display: flex;
-    width: 50vh;
-    align-items: center;
+    /* Width is restricted to ensure a closer spread of the icons */
+    width: 35%;
+    align-self: center;
     justify-content: space-evenly;
-    margin: 2em 0 0;
 }
+
+/* Footer end*/
