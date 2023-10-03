@@ -1,5 +1,6 @@
 // We don't use the shadow DOM because we want styles to leak into the custom elements
 
+let prefix = "";
 customElements.define("ecf-nav", class extends HTMLElement {
 
     // Just define the variable here so that the IDE doesn't complain
@@ -14,7 +15,7 @@ customElements.define("ecf-nav", class extends HTMLElement {
         } else {
             // Remove the name of the project name in dev environments
             if (this.current.indexOf("/ecf_website") === 0) {
-                this.current = this.current.substring("/ecf_website".length);
+                prefix = "/ecf_website";
             }
             // Only use the first part of the path
             if (this.current.indexOf("/", 1) !== -1) {
@@ -37,29 +38,29 @@ customElements.define("ecf-nav", class extends HTMLElement {
         <nav>
             <a class="logo" href="/"><img src="/assets/icon.ico" alt="Evergreen Collective's logo"></a>
              <ul id="nav-list">
-                <li class="nav-home-border"><a href="/">HOME</a></li>
-                <li><a href="/get-involved">GET INVOLVED</a></li>
+                <li class="nav-home-border"><a href="${prefix === "" ? "/" : prefix}">HOME</a></li>
+                <li><a href="${prefix}/get-involved">GET INVOLVED</a></li>
                 <li>
                     <!-- The spacing here is to make the caret down actually look good-->
-                    <a id="nav-about" href="/about-us">ABOUT US&nbsp;&nbsp;
+                    <a id="nav-about" href="${prefix}/about-us">ABOUT US&nbsp;&nbsp;
                         <i class="fa-solid fa-caret-down"></i>
                         <i class="fa-solid fa-caret-up"></i>
                     </a>
                     <div class="nav-dropdown">
                         <div class="nav-dropdown-border">
                             <div class="nav-dropdown-content">
-                                <a href="/about-us/Canada/AB">AB - Canada</a>
-                                <a href="/about-us/Canada/BC">BC - Canada</a>
-                                <a href="/about-us/Canada/ON">ON - Canada</a>
-                                <a href="/about-us/Canada/SK">SK - Canada</a>
-                                <a href="/about-us/Turkey">Turkey</a>
-                                <a href="/about-us/USA/CA">CA - USA</a>
+                                <a href="${prefix}/about-us/Canada/AB">AB - Canada</a>
+                                <a href="${prefix}/about-us/Canada/BC">BC - Canada</a>
+                                <a href="${prefix}/about-us/Canada/ON">ON - Canada</a>
+                                <a href="${prefix}/about-us/Canada/SK">SK - Canada</a>
+                                <a href="${prefix}/about-us/Turkey">Turkey</a>
+                                <a href="${prefix}/about-us/USA/CA">CA - USA</a>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li><a href="https://blog.evergreencollective.ca">BLOG</a></li>
-                <li class="nav-donate-border"><a class="nav-donate" href="/donate">DONATE</a></li>
+                <li class="nav-donate-border"><a class="nav-donate" href="${prefix}/donate">DONATE</a></li>
             </ul>
         </nav>`;
 
