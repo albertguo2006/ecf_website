@@ -14,20 +14,21 @@ customElements.define("ecf-nav", class extends HTMLElement {
             this.current = "/";
         } else {
             // Remove the name of the project name in dev environments
-            if (this.current.indexOf("/ecf_website") === 0) {
+            if (this.current.startsWith("/ecf_website")) {
                 prefix = "/ecf_website";
             }
-            // Only use the first part of the path
-            if (this.current.indexOf("/", 1) !== -1) {
-                this.current = this.current.substring(0, this.current.indexOf("/", 1) + 1);
+            // Only include the first part of the path after the prefix, prefix included.
+            const pathEnd = this.current.indexOf("/", prefix !== "" ? prefix.length + 1 : 1);
+            if (pathEnd !== -1) {
+                this.current = this.current.substring(0, pathEnd + 1);
             }
             // Remove index.html
             if (this.current.indexOf("index.html") !== -1) {
                 this.current = this.current.substring(0, this.current.indexOf("index.html"));
             }
-            // Remove the trailing slash
-            if (this.current !== "/" && this.current.charAt(this.current.length - 1) === "/") {
-                this.current = this.current.substring(0, this.current.length - 1);
+            // Add trailing slash if not present
+            if (this.current.endsWith("/") === false) {
+                this.current += "/";
             }
         }
     }
@@ -36,31 +37,33 @@ customElements.define("ecf-nav", class extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <nav>
-            <a class="logo" href="/"><img src="/assets/icon.ico" alt="Evergreen Collective's logo"></a>
-             <ul id="nav-list">
-                <li class="nav-home-border"><a href="${prefix === "" ? "/" : prefix}">HOME</a></li>
-                <li><a href="${prefix}/get-involved">GET INVOLVED</a></li>
+            <a class="logo" href=${prefix === "" ? "/" : `${prefix}/`}>
+                <img src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo">
+            </a>
+            <ul id="nav-list">
+                <li class="nav-home-border"><a href=${prefix === "" ? "/" : `${prefix}/`}>HOME</a></li>
+                <li><a href="${prefix}/get-involved/">GET INVOLVED</a></li>
                 <li>
                     <!-- The spacing here is to make the caret down actually look good-->
-                    <a id="nav-about" href="${prefix}/about-us">ABOUT US&nbsp;&nbsp;
+                    <a id="nav-about" href="${prefix}/about-us/">ABOUT US&nbsp;&nbsp;
                         <i class="fa-solid fa-caret-down"></i>
                         <i class="fa-solid fa-caret-up"></i>
                     </a>
                     <div class="nav-dropdown">
                         <div class="nav-dropdown-border">
                             <div class="nav-dropdown-content">
-                                <a href="${prefix}/about-us/Canada/AB">AB - Canada</a>
-                                <a href="${prefix}/about-us/Canada/BC">BC - Canada</a>
-                                <a href="${prefix}/about-us/Canada/ON">ON - Canada</a>
-                                <a href="${prefix}/about-us/Canada/SK">SK - Canada</a>
-                                <a href="${prefix}/about-us/Turkey">Turkey</a>
-                                <a href="${prefix}/about-us/USA/CA">CA - USA</a>
+                                <a href="${prefix}/about-us/Canada/AB/">AB - Canada</a>
+                                <a href="${prefix}/about-us/Canada/BC/">BC - Canada</a>
+                                <a href="${prefix}/about-us/Canada/ON/">ON - Canada</a>
+                                <a href="${prefix}/about-us/Canada/SK/">SK - Canada</a>
+                                <a href="${prefix}/about-us/Turkey/">Turkey</a>
+                                <a href="${prefix}/about-us/USA/CA/">CA - USA</a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li><a href="https://blog.evergreencollective.ca">BLOG</a></li>
-                <li class="nav-donate-border"><a class="nav-donate" href="${prefix}/donate">DONATE</a></li>
+                <li><a href="https://blog.evergreencollective.ca/">BLOG</a></li>
+                <li class="nav-donate-border"><a class="nav-donate" href="${prefix}/donate/">DONATE</a></li>
             </ul>
         </nav>`;
 

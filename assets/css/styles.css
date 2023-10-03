@@ -55,6 +55,7 @@ nav img {
     /* Ensure that height does not exceed var(--nav-height) */
     height: 8vh;
     padding: 2vh 0 2vh 2vw;
+    color: black;
 }
 
 nav ul {
