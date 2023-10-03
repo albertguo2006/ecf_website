@@ -53,6 +53,7 @@ customElements.define("ecf-nav", class extends HTMLElement {
                                 <a href="/about-us/Canada/ON">ON - Canada</a>
                                 <a href="/about-us/Canada/SK">SK - Canada</a>
                                 <a href="/about-us/Turkey">Turkey</a>
+                                <a href="/about-us/USA/CA">CA - USA</a>
                             </div>
                         </div>
                     </div>
