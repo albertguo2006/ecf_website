@@ -13,6 +13,7 @@
 
 h1 {
     font-family: "Montserrat", sans-serif;
+    font-size: 3vw;
 }
 
 a, h2 {
@@ -23,6 +24,7 @@ a, h2 {
 
 a {
     color: white;
+    text-decoration: none;
 }
 
 a:hover {
@@ -39,6 +41,22 @@ body, .wrapper {
     flex-direction: column;
     height: 100%;
     /* Remember to substitute this when testing the bounds of the nav! */
+}
+
+.parallax {
+    width: 100vw;
+    height: calc(110vh - var(--nav-height));
+    /* Create the parallax scrolling effect. NOTE THAT WE STILL NEED A BG IMAGE! */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.orange-bar {
+    width: 20vw;
+    height: 0;
+    border-top: 0.7vh solid var(--ecf-red);
 }
 
 /* Nav start */
@@ -94,7 +112,6 @@ nav li a {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
     height: 100%;
     color: black;
     background-color: white;
@@ -231,3 +248,57 @@ footer {
 }
 
 /* Footer end*/
+
+/* Home start */
+.home1-bg {
+    background-image: url("../background/home1.webp");
+}
+
+.home1-overlay {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4vh;
+    padding: 30vh 32vw;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: white;
+}
+
+.home1-orange-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.home1-overlay a {
+    width: 25vw;
+    color: white;
+    background: rgba(0, 0, 0, 0);
+    border: 0.15rem solid white;
+    border-radius: 1rem;
+    padding: 1.7vh 0;
+    font-size: 1.4vw;
+}
+
+.home2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 50vh;
+    padding: 30vh 5vw;
+}
+
+.home2-left {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.home2-right {
+    /*height: 100%;*/
+}
+
+.home3-bg {
+    background-image: url("../background/home3.webp");
+}
