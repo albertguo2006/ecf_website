@@ -199,17 +199,19 @@ See more in .current
 
 /* Footer start */
 /* TODO minor adjustments for mobile footer*/
-.footer {
-    /* TODO: USE THIS INSTEAD OF BACKGROUND COLOUR WHEN IT IS AVAILABLE
-    background-image: url("/assets/footer.png");
-    */
-    background-color: var(--ecf-green);
+footer {
     display: flex;
     flex-direction: column;
     row-gap: 7vh;
     width: 100vw;
     padding: 5vh 0;
     color: white;
+    background-image: url("../background/footer.webp");
+    /* bg-colour as backup */
+    background-color: var(--ecf-green);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .contact {

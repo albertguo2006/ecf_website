@@ -81,7 +81,7 @@ customElements.define("ecf-footer", class extends HTMLElement {
     // This is used, unlike what the IDE might claim
     connectedCallback() {
         this.innerHTML = `
-        <footer id="ecf-footer" class="footer">
+        <footer>
             <div class="contact">
                 <h1>CONTACT US</h1>
             </div>
