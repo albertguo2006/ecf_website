@@ -337,17 +337,17 @@ footer {
     row-gap: 2vh;
 }
 
-.home4-stats h1 {
-    font-size: calc(var(--h1-size) * 1.35);
-    color: var(--ecf-green);
-}
-
 .home4-stats h2 {
     font-size: calc(var(--h2-size) * 1.35);
 }
 
 .home4-stats:nth-child(1) h1 {
     color: var(--ecf-red);
+}
+
+.home4-stats-amt {
+    font-size: calc(var(--h1-size) * 1.35);
+    color: var(--ecf-green);
 }
 
 .home4-bottom {
