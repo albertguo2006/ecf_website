@@ -38,7 +38,7 @@ customElements.define("ecf-nav", class extends HTMLElement {
         this.innerHTML = `
         <nav>
             <a class="logo" href=${prefix === "" ? "/" : `${prefix}/`}>
-                <img src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo">
+                <img src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
             </a>
             <ul id="nav-list">
                 <li class="nav-home-border"><a href=${prefix === "" ? "/" : `${prefix}/`}>HOME</a></li>
@@ -113,3 +113,14 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
         <ecf-footer></ecf-footer>`;
     }
 });
+
+const toLazyLoad = document.querySelectorAll(".lazy-load");
+const lazyLoaderObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.remove("lazy-load");
+            lazyLoaderObserver.unobserve(entry.target);
+        }
+    })
+})
+toLazyLoad.forEach(element => lazyLoaderObserver.observe(element));

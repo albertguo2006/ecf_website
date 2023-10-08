@@ -1,9 +1,8 @@
 const stats = document.querySelectorAll(".home4-stats-amt");
 const initStats = [];
 stats.forEach(stat => initStats.push(stat.innerHTML));
-console.log(Number(initStats.find(stat => stat.startsWith("$")).replace("$", "")));
 
-const observer = new IntersectionObserver(entries => {
+const statsObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
 
@@ -51,4 +50,4 @@ const observer = new IntersectionObserver(entries => {
     })
 });
 
-stats.forEach(stat => observer.observe(stat));
+stats.forEach(stat => statsObserver.observe(stat));

@@ -384,3 +384,8 @@ footer {
 .home4-difference {
     color: var(--ecf-green);
 }
+
+/* Lazy loading NEEDS to be at the bottom to override all other styles */
+.lazy-load {
+    background-image: none;
+}
