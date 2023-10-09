@@ -318,8 +318,48 @@ footer {
     align-self: center;
 }
 
-.home3-bg {
+.home3 {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    width: 100vw;
+}
+
+.home3 > div {
+    display: flex;
+    flex-shrink: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+}
+
+.home3-bg1 {
     background-image: url("../background/home3-post1.webp");
+}
+
+.home3-bg2 {
+    background-image: url("../background/home3-post2.webp");
+}
+
+.home3-nav {
+    display: flex;
+    width: 10vw;
+    padding: 90vh 0 0;
+    justify-content: space-evenly;
+}
+
+.home3-nav > a {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+}
+
+.current-post {
+    background-color: white;
+}
+
+.other-post {
+    background-color: grey;
 }
 
 .home4 {

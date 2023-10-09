@@ -46,12 +46,25 @@
                     catastrophes alike.
                 </h2>
             </div>
-            <img src="./assets/foreground/home2.webp" alt="ECF members volunteering" class="home2-right" loading="lazy"/>
+            <img src="./assets/foreground/home2.webp" alt="ECF members volunteering" class="home2-right"
+                 loading="lazy"/>
         </div>
-        <ul>
-            <!-- TODO blog pane -->
-            <li class="home3-bg parallax lazy-load"></li>
-        </ul>
+        <!-- TODO Make nav stick to the home3 div, not within the post div. -->
+        <!-- TODO Currently, the buttons move when the gallery moves, which is not what we want-->
+        <div class="home3">
+            <div id="post1" class="home3-bg1 parallax lazy-load">
+                <div class="home3-nav">
+                    <a class="current-post" href="#post1"></a>
+                    <a class="other-post" href="#post2"></a>
+                </div>
+            </div>
+            <div id="post2" class="home3-bg2 parallax lazy-load">
+                <div class="home3-nav">
+                    <a class="other-post" href="#post1"></a>
+                    <a class="current-post" href="#post2"></a>
+                </div>
+            </div>
+        </div>
         <div class="home4">
             <div class="home4-top">
                 <div class="home4-stats">
@@ -68,7 +81,8 @@
                 </div>
             </div>
             <div class="home4-bottom">
-                <img src="./assets/foreground/home4.webp" alt="Upside down bottle cap" class="home4-left" loading="lazy">
+                <img src="./assets/foreground/home4.webp" alt="Upside down bottle cap" class="home4-left"
+                     loading="lazy">
                 <div class="home4-right">
                     <div>
                         <h1>MAKE A</h1>
