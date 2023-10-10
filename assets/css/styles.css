@@ -337,6 +337,7 @@ footer {
     z-index: 2;
 }
 
+/* TODO Make it so that text does not overlap the buttons when screen is very wide but not tall */
 .home3-nav > a {
     width: 1rem;
     height: 1rem;

@@ -1,4 +1,5 @@
 // Change post selector colour (implemented using css) on click
+// TODO Fix bug where colour doesn't change on click?
 let currentPost = document.querySelector(".current-post");
 
 document.onclick = e => {
