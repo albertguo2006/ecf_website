@@ -326,9 +326,10 @@ footer {
 
 .home3-nav {
     display: flex;
+    /* Left and right need to be so that width exactly == 100vw */
     width: 15vw;
-    /* Left and right padding need to be so that width exactly == 100vw */
-    padding: 90vh calc((100vw - 15vw) / 2) 0;
+    bottom: 10vh;
+    left: 42.5vw;
     justify-content: space-evenly;
     /* This is just absolute within the parent div */
     position: absolute;
@@ -337,8 +338,8 @@ footer {
 }
 
 .home3-nav > a {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
 }
 
