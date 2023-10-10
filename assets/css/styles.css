@@ -3,7 +3,7 @@
     --ecf-red: #FC6467;
     --link-blue: #2F80ED;
     --border-color: silver;
-    --nav-height: 12vh;
+    --nav-height: 10vh;
     --h1-size: 3vw;
     --h2-size: 1.4vw;
 }
@@ -75,12 +75,13 @@ nav {
     height: var(--nav-height);
     width: 100vw;
     background-color: white;
+    align-items: center;
 }
 
 nav img {
     /* Ensure that height does not exceed var(--nav-height) */
-    height: 8vh;
-    padding: 2vh 0 2vh 2vw;
+    height: calc(var(--nav-height) - 2vh);
+    padding: 0 0 0 2vw;
     color: black;
 }
 
@@ -100,8 +101,8 @@ nav li {
     /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
     position: relative;
     /* Borders are used to help denote what is the current page. See more in .current */
-    border-top: 1.5vh solid white;
-    border-bottom: 1.5vh solid white;
+    border-top: 1vh solid white;
+    border-bottom: 1vh solid white;
     /*
     This specific border behaviour causes weird artifacting, but I think I prefer it this way.
     No specific reason why these border sizes were chose, just ensure that they are the same
