@@ -52,16 +52,30 @@
         <!-- TODO Make nav stick to the home3 div, not within the post div. -->
         <!-- TODO Currently, the buttons move when the gallery moves, which is not what we want-->
         <div class="home3">
-            <div id="post1" class="home3-bg1 parallax lazy-load">
-                <div class="home3-nav">
-                    <a class="current-post" href="#post1"></a>
-                    <a class="other-post" href="#post2"></a>
-                </div>
+            <div class="home3-nav">
+                <a class="current-post" href="#post1"></a>
+                <a class="not-current-post" href="#post2"></a>
             </div>
-            <div id="post2" class="home3-bg2 parallax lazy-load">
-                <div class="home3-nav">
-                    <a class="other-post" href="#post1"></a>
-                    <a class="current-post" href="#post2"></a>
+            <div class="home3-posts">
+                <div id="post1" class="home3-bg home3-bg1 parallax lazy-load">
+                    <div class="post-overlay">
+                        <div class="orange-bar-10"></div>
+                        <h1>Blog title</h1>
+                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tempor nisi efficitur
+                            aliquam. Nullam odio ipsum, rhoncus sed nisl aliquet, ornare rhoncus eros. Vivamus quis diam
+                            egestas, molestie ex iaculis, elementum nisl. Aliquam erat volutpat. Mauris tincidunt nisl
+                            quam, id scelerisque elit placerat vitae.</h2>
+                    </div>
+                </div>
+                <div id="post2" class="home3-bg home3-bg2 parallax lazy-load">
+                    <div class="post-overlay">
+                        <div class="orange-bar-10"></div>
+                        <h1>Blog title 2</h1>
+                        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis tempor nisi efficitur
+                            aliquam. Nullam odio ipsum, rhoncus sed nisl aliquet, ornare rhoncus eros. Vivamus quis diam
+                            egestas, molestie ex iaculis, elementum nisl. Aliquam erat volutpat. Mauris tincidunt nisl
+                            quam, id scelerisque elit placerat vitae.</h2>
+                    </div>
                 </div>
             </div>
         </div>

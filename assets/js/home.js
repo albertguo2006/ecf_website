@@ -1,3 +1,17 @@
+// Change post selector colour (implemented using css) on click
+let currentPost = document.querySelector(".current-post");
+
+document.onclick = e => {
+    if (e.target.classList.contains("not-current-post")) {
+        currentPost.classList.remove("current-post");
+        currentPost.classList.add("not-current-post");
+        currentPost = e.target;
+        e.target.classList.add("current-post");
+        e.target.classList.remove("not-current-post");
+    }
+}
+
+// "Animate" the stats on the home page
 const stats = document.querySelectorAll(".home4-stats-amt");
 const initStats = [];
 stats.forEach(stat => initStats.push(stat.innerHTML));

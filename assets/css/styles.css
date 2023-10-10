@@ -319,13 +319,45 @@ footer {
 }
 
 .home3 {
-    display: flex;
-    overflow: hidden;
-    scroll-behavior: smooth;
+    position: relative;
     width: 100vw;
 }
 
-.home3 > div {
+.home3-nav {
+    display: flex;
+    width: 15vw;
+    /* Left and right padding need to be so that width exactly == 100vw */
+    padding: 90vh calc((100vw - 15vw) / 2) 0;
+    justify-content: space-evenly;
+    /* This is just absolute within the parent div */
+    position: absolute;
+    /* z index MUST be higher than that of home3-posts*/
+    z-index: 2;
+}
+
+.home3-nav > a {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+}
+
+.not-current-post {
+    background-color: grey;
+}
+
+/* Current post styling is below .not-current-post to allow for cascading just in case */
+.current-post {
+    background-color: white;
+}
+
+.home3-posts {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    z-index: 1;
+}
+
+.home3-bg {
     display: flex;
     flex-shrink: 0;
     width: 100vw;
@@ -341,25 +373,16 @@ footer {
     background-image: url("../background/home3-post2.webp");
 }
 
-.home3-nav {
+.post-overlay {
     display: flex;
-    width: 10vw;
-    padding: 90vh 0 0;
-    justify-content: space-evenly;
+    flex-direction: column;
+    row-gap: 3vh;
+    margin: 55vh 30vw 5vh 5vw;
+    color: white;
 }
 
-.home3-nav > a {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-}
-
-.current-post {
-    background-color: white;
-}
-
-.other-post {
-    background-color: grey;
+.post-overlay > h2 {
+    line-height: 1.5;
 }
 
 .home4 {
