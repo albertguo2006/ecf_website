@@ -1,5 +1,15 @@
+// Correctly identify what post is selected on page load, if any
+window.onload = () => {
+    const fragment = window.location.hash;
+    const inactiveSelectors = document.querySelectorAll(".not-current-post");
+    const inactiveSelector = (fragment && fragment !== "#post1" && fragment.startsWith("#post")) ?
+        inactiveSelectors[Number(fragment.replace("#post", "")) - 1] : inactiveSelectors[0];
+    inactiveSelector.classList.remove("not-current-post");
+    inactiveSelector.classList.add("current-post");
+}
+
+//TODO null when current post is clicked
 // Change post selector colour (implemented using css) on click
-// TODO Fix bug where colour doesn't change on click?
 let currentPost = document.querySelector(".current-post");
 
 document.onclick = e => {
