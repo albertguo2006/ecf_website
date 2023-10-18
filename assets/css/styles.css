@@ -41,7 +41,6 @@ body, .wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* Remember to substitute this when testing the bounds of the nav! */
 }
 
 .parallax {
@@ -99,7 +98,7 @@ nav ul {
 nav li {
     /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
     position: relative;
-    /* Borders are used to help denote what is the current page. See more in .current */
+    /* Borders are used to help denote what is the current page. Kinda hacky, but it works. See more in .current */
     border-top: 1vh solid white;
     border-bottom: 1vh solid white;
     /*
@@ -149,7 +148,11 @@ nav li a:hover {
     width: 100%;
 }
 
-.fa-caret-up {
+/*
+Some code to change the display of the up/down caret depending on whether it's parent is being hovered on.
+Note that since we are editing the display of the original class used when in a li, it overrides the default behaviours of the icons (where they are always displayed)
+*/
+li .fa-caret-up {
     display: none;
 }
 
@@ -274,13 +277,8 @@ footer {
     color: white;
 }
 
-.home1-orange-bar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.home1-overlay a {
+/* Create a transparent "button" */
+.home1-overlay > a {
     width: 25vw;
     color: white;
     background: rgba(0, 0, 0, 0);
@@ -305,7 +303,7 @@ footer {
     place-content: center;
 }
 
-.home2-left h1 {
+.home2-left > h1 {
     color: var(--ecf-green);
     padding: 1vh 0 2vh;
 }
@@ -459,6 +457,8 @@ footer {
 .home4-difference {
     color: var(--ecf-green);
 }
+
+/* Home end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
 .lazy-load {
