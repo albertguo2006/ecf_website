@@ -337,7 +337,6 @@ footer {
     z-index: 2;
 }
 
-/* TODO Make it so that text does not overlap the buttons when screen is very wide but not tall */
 .home3-nav > a {
     width: 1rem;
     height: 1rem;
@@ -379,12 +378,15 @@ footer {
 .post-overlay {
     display: flex;
     flex-direction: column;
-    row-gap: 3vh;
-    margin: 55vh 30vw 5vh 5vw;
+    row-gap: 2vh;
+    margin: 0 30vw 20vh 5vw;
+    align-self: end;
     color: white;
 }
 
+/* Use padding to further separate the elements instead of just using row-gap because we don't want an even gap */
 .post-overlay > h2 {
+    padding: 0 0 1vh;
     line-height: 1.5;
 }
 

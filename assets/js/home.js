@@ -8,15 +8,13 @@ window.onload = () => {
     inactiveSelector.classList.add("current-post");
 }
 
-//TODO null when current post is clicked
 // Change post selector colour (implemented using css) on click
-let currentPost = document.querySelector(".current-post");
-
 document.onclick = e => {
     if (e.target.classList.contains("not-current-post")) {
-        currentPost.classList.remove("current-post");
-        currentPost.classList.add("not-current-post");
-        currentPost = e.target;
+        document.querySelectorAll(".current-post").forEach(post => {
+            post.classList.remove("current-post");
+            post.classList.add("not-current-post");
+        });
         e.target.classList.add("current-post");
         e.target.classList.remove("not-current-post");
     }
