@@ -21,62 +21,80 @@ document.onclick = e => {
 }
 
 // "Animate" the stats on the home page
-const stats = document.querySelectorAll(".home4-stats-amt");
-const initStats = [];
-stats.forEach(stat => initStats.push(stat.innerHTML));
+const initStats = {
+    // Stats may need to be formatted so that we get numbers without errors
+
+    "dollars": Number(document.getElementById("home4-stats-dollars").innerHTML.replace("$", "").replace(",", "")),
+    "volunteers": Number(document.getElementById("home4-stats-volunteers").innerHTML.replace("+", "")),
+    "events": Number(document.getElementById("home4-stats-events").innerHTML)
+}
 
 const statsObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const targetedCompletionMs = 300;
+        if (!entry.isIntersecting) return;
 
-            if (entry.target.innerHTML.startsWith("$")) {
-                const increment = 100;
+        const targetedCompletionMs = 300;
+        // The undefined fields need to be defined in the switch statement, else the rest of the code will break
+        let target = undefined;
+        let increment = undefined;
+        let current = 0;
 
-                let dollars = 0;
-                entry.target.innerHTML = `$${dollars.toLocaleString()}`;
-                let target = Number(initStats.find(stat => stat.startsWith("$")).replace("$", "").replace(",", ""));
+        /*
+        Timeout is the number of milliseconds between each increment, so that total increments take targetedCompletionMs.
+        Calculation is timout = totalTime / speed
+         */
+        const timeout = () => targetedCompletionMs / (target / increment);
+
+        switch (entry.target.id) {
+            case "home4-stats-dollars":
+                target = initStats["dollars"];
+                increment = 100;
+
+                entry.target.innerHTML = `$${current.toLocaleString()}`;
 
                 const incrementDollars = setInterval(() => {
-                    dollars = Math.min(dollars + increment, target);
-                    entry.target.innerHTML = `$${dollars.toLocaleString()}`;
+                    // This ensures that we don't exceed target
+                    current = Math.min(current + increment, target);
+                    entry.target.innerHTML = `$${current.toLocaleString()}`;
 
-                    if (dollars === target) {
-                        clearInterval(incrementDollars);
-                    }
-                    // Timeout is the number of milliseconds between each increment, so that total increments take targetedCompletionMs
-                }, targetedCompletionMs / (target / increment));
-            } else if (entry.target.innerHTML.endsWith("+")) {
-                const increment = 1;
+                    if (current !== target) return;
+                    clearInterval(incrementDollars);
+                }, timeout());
+                break;
 
-                let volunteers = 0;
-                entry.target.innerHTML = `${volunteers.toLocaleString()}+`;
-                let target = Number(initStats.find(stat => stat.endsWith("+")).replace("+", ""));
+            case "home4-stats-volunteers":
+                target = initStats["volunteers"];
+                increment = 1;
+
+                entry.target.innerHTML = `${current.toLocaleString()}+`;
 
                 const incrementVolunteers = setInterval(() => {
-                    volunteers = Math.min(volunteers + increment, target);
-                    entry.target.innerHTML = `${volunteers.toLocaleString()}+`;
-                    if (volunteers === target) {
-                        clearInterval(incrementVolunteers);
-                    }
-                }, targetedCompletionMs / (target / increment));
-            } else {
-                const increment = 1;
+                    current = Math.min(current + increment, target);
+                    entry.target.innerHTML = `${current.toLocaleString()}+`;
 
-                let events = 0;
-                entry.target.innerHTML = `${events.toLocaleString()}`;
-                let target = Number(initStats.find(stat => !stat.endsWith("+") && !stat.startsWith("$")));
+                    if (current !== target) return
+                    clearInterval(incrementVolunteers);
+                }, timeout());
+                break;
+
+            case "home4-stats-events":
+                target = initStats["events"];
+                increment = 1;
+
+                entry.target.innerHTML = current.toLocaleString();
 
                 const incrementEvents = setInterval(() => {
-                    events = Math.min(events + increment, target);
-                    entry.target.innerHTML = `${events.toLocaleString()}`;
-                    if (events === target) {
-                        clearInterval(incrementEvents);
-                    }
-                }, targetedCompletionMs / (target / increment));
-            }
+                    current = Math.min(current + increment, target);
+                    entry.target.innerHTML = current.toLocaleString();
+
+                    if (current !== target) return;
+                    clearInterval(incrementEvents);
+                }, timeout());
+                break;
         }
     })
 });
 
-stats.forEach(stat => statsObserver.observe(stat));
+statsObserver.observe(document.getElementById("home4-stats-dollars"));
+statsObserver.observe(document.getElementById("home4-stats-volunteers"));
+statsObserver.observe(document.getElementById("home4-stats-events"));
