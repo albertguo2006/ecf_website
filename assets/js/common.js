@@ -124,5 +124,6 @@ const lazyLoaderObserver = new IntersectionObserver(entries => {
             lazyLoaderObserver.unobserve(entry.target);
         }
     })
-})
+});
+
 toLazyLoad.forEach(element => lazyLoaderObserver.observe(element));
