@@ -138,7 +138,7 @@ nav li a:hover {
      This seems like a worthy tradeoff though,
      as the only noticeable affected area is the tiny bit between the top of the screen and the respective nav element.
     */
-    border-bottom: 1.5vh solid var(--ecf-green);
+    border-bottom: 1vh solid var(--ecf-green);
 }
 
 /* Some stuff to affect the display of the dropdown/caret icon */
@@ -148,19 +148,16 @@ nav li a:hover {
     width: 100%;
 }
 
-/*
-Some code to change the display of the up/down caret depending on whether it's parent is being hovered on.
-Note that since we are editing the display of the original class used when in a li, it overrides the default behaviours of the icons (where they are always displayed)
-*/
-li .fa-caret-up {
+/* Some code to change the display of the up/down caret depending on whether it's parent is being hovered on. */
+.nav-about-caret > .fa-caret-up {
     display: none;
 }
 
-li:hover .nav-dropdown, li:hover .fa-caret-up {
+li:hover > .nav-dropdown, li:hover  .nav-about-caret > .fa-caret-up {
     display: block;
 }
 
-li:hover .fa-caret-down {
+li:hover .nav-about-caret > .fa-caret-down {
     display: none;
 }
 
@@ -271,8 +268,6 @@ footer {
     row-gap: 4vh;
     padding: 30vh 32vw;
     text-align: center;
-    justify-content: center;
-    align-content: center;
     align-items: center;
     color: white;
 }

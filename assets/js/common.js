@@ -46,8 +46,10 @@ customElements.define("ecf-nav", class extends HTMLElement {
                 <li>
                     <!-- The spacing here is to make the caret down actually look good-->
                     <a id="nav-about" href="${prefix}/about-us/">ABOUT US&nbsp;&nbsp;
-                        <i class="fa-solid fa-caret-down"></i>
-                        <i class="fa-solid fa-caret-up"></i>
+                        <div class="nav-about-caret">
+                            <i class="fa-solid fa-caret-down"></i>
+                            <i class="fa-solid fa-caret-up"></i>
+                        </div>
                     </a>
                     <div class="nav-dropdown">
                         <div class="nav-dropdown-border">
