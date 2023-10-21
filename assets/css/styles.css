@@ -219,6 +219,7 @@ See more in .current
 .content {
     /* Default sticky footer stuff*/
     display: flex;
+    flex-direction: column;
     flex: 1 0 auto;
 }
 
