@@ -65,6 +65,16 @@ body, .wrapper {
     border-top: 0.7vh solid var(--ecf-red);
 }
 
+.donate-button {
+    width: 25vw;
+    color: black;
+    background: rgba(0, 0, 0, 0);
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    padding: 2vh 0;
+    text-align: center;
+}
+
 /* Nav start */
 /* TODO mobile nav */
 nav {
@@ -446,20 +456,74 @@ footer {
     align-self: center;
 }
 
-.home4-right > a {
-    width: 25vw;
-    color: black;
-    background: rgba(0, 0, 0, 0);
-    border: 0.1rem solid black;
-    border-radius: 1rem;
-    padding: 2vh 0;
-}
-
 .home4-difference {
     color: var(--ecf-green);
 }
 
 /* Home end */
+
+/* Get Involved start */
+.getInvolved1-bg {
+    background-image: url("../background/getInvolved1.webp");
+}
+
+.getInvolved1-overlay {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    position: absolute;
+    bottom: 20vh;
+    left: 5vw;
+    width: 20%;
+    color: white;
+}
+
+.getInvolved1-overlay > h1 {
+    font-size: calc(var(--h1-size) * 1.35);
+    color: white;
+}
+
+.getInvolved1-overlay > h2 {
+    font-size: calc(var(--h2-size) * 1.35);
+    color: white;
+}
+
+.getInvolved2 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10vh;
+    min-height: 40vh;
+    padding: 20vh 5vw 10vh;
+}
+
+.getInvolved2-top {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10vh;
+    width: 30vw;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+}
+
+.getInvolved2-bottom {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+}
+
+.getInvolved2-bottom > h1 {
+    color: var(--ecf-green);
+}
+
+.getInvolved3-bg {
+    background-image: url("../background/getInvolved3.webp");
+}
+
+/* Hidden NEEDS to be at the bottom to override all other styles */
+.hidden {
+    display: none;
+}
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
 .lazy-load {

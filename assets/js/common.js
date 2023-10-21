@@ -119,10 +119,10 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
 const toLazyLoad = document.querySelectorAll(".lazy-load");
 const lazyLoaderObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.remove("lazy-load");
-            lazyLoaderObserver.unobserve(entry.target);
-        }
+        // No point in doing anything if the element is hidden anyway. Shouldn't happen, but jic
+        if (!entry.isIntersecting || entry.target.hidden) return;
+        entry.target.classList.remove("lazy-load");
+        lazyLoaderObserver.unobserve(entry.target);
     })
 });
 
