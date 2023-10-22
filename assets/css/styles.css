@@ -1,5 +1,6 @@
 :root {
     --ecf-green: #749B88;
+    --ecf-green-rgb: 116, 155, 136;
     --ecf-red: #FC6467;
     --link-blue: #2F80ED;
     --border-color: silver;
@@ -65,7 +66,7 @@ body, .wrapper {
     border-top: 0.7vh solid var(--ecf-red);
 }
 
-.donate-button {
+.transparent-button {
     width: 25vw;
     color: black;
     background: rgba(0, 0, 0, 0);
@@ -518,6 +519,50 @@ footer {
 
 .getInvolved3-bg {
     background-image: url("../background/getInvolved3.webp");
+}
+
+.getInvolved3 {
+    position: relative;
+}
+
+/* TODO WORK NEEDED FOR GET INVOLVED TO MAKE IT LOOK NICE WHEN SCALED! */
+.getInvolved3-oval {
+    position: absolute;
+    width: 145%;
+    height: 100%;
+    /* Position past left then hide overflow to achieve desired effect */
+    left: -70%;
+    overflow: hidden;
+    background-color: rgba(var(--ecf-green-rgb), 0.7);
+    /* I literally have no idea why this works. Some horizontal and vertical radius magic ig */
+    border-top-right-radius: 50% 100%;
+}
+
+.getInvolved3-overlay {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    position: absolute;
+    left: 52.5%;
+    bottom: 20%;
+    color: white;
+}
+
+.getInvolved3-overlay > h1 {
+    width: 40vw;
+    line-height: 1.5;
+    font-size: calc(var(--h1-size) * 1.35);
+    padding: 5vh 0;
+}
+
+.getInvolved3-overlay > h2 {
+    width: 20vw;
+    line-height: 1.5;
+}
+
+.getInvolved3-overlay > .transparent-button {
+    color: white;
+    border-color: white;
 }
 
 /* Hidden NEEDS to be at the bottom to override all other styles */
