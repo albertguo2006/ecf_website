@@ -565,6 +565,21 @@ footer {
     border-color: white;
 }
 
+.getInvolved4 {
+    background-color: var(--ecf-green);
+    padding: 5vh 5vw;
+}
+
+.getInvolved4 > .transparent-button {
+    color: white;
+    border-color: white;
+}
+
+/* Hidden Past Event NEEDS to be at the bottom to override all other styles */
+.hiddenPastEvent {
+    display: none;
+}
+
 /* Hidden NEEDS to be at the bottom to override all other styles */
 .hidden {
     display: none;

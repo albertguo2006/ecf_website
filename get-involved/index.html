@@ -40,11 +40,9 @@
             <h1>UPCOMING EVENTS</h1>
         </div>
     </div>
+    <!-- If wanted, we could also just replace the manually drawn oval with static image?
+    That will make the oval not affected by the parallax affect tho -->
     <div class="getInvolved3 getInvolved3-bg parallax lazy-load">
-        <!--
-        I'm currently thinking of creating a translucent green oval with overflow hidden for the effect.
-        I thought that we might have to raise the z layer for the overlay, but actually, perhaps not
-        -->
         <div class="getInvolved3-oval">
             <div class="getInvolved3-overlay">
                 <h1>KRISPY KREME FUNDRAISER</h1>
@@ -53,9 +51,47 @@
                 <a onclick="alert('Coming soon!')" class="transparent-button">VOLUNTEER</a>
             </div>
         </div>
-
     </div>
     <div class="getInvolved4">
+        <div class>
+            <img src="../assets/foreground/getInvolved3-krispyKreme.webp" alt="Krispy Kreme Fundraiser"/>
+            <h1>KRISPY KREME</h1>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ex vitae vulputate volutpat.
+                Phasellus dictum dui sed risus</h2>
+        </div>
+        <div>
+            <img src="../assets/foreground/getInvolved3-toteBag.webp" alt="Krispy Kreme Fundraiser"/>
+            <h1>TOTE BAG SALE</h1>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ex vitae vulputate volutpat.
+                Phasellus dictum dui sed risus</h2>
+        </div>
+        <div>
+            <img src="../assets/foreground/getInvolved3-beachCleanup.webp" alt="Krispy Kreme Fundraiser"/>
+            <h1>BEACH CLEANUP</h1>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ex vitae vulputate volutpat.
+                Phasellus dictum dui sed risus</h2>
+        </div>
+        <div class="hiddenPastEvent">
+            <img src="../assets/foreground/getInvolved3-beachCleanup.webp" alt="Krispy Kreme Fundraiser"/>
+            <h1>BEACH CLEANUP</h1>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ex vitae vulputate volutpat.
+                Phasellus dictum dui sed risus</h2>
+        </div>
+        <div class="hiddenPastEvent">
+            <img src="../assets/foreground/getInvolved3-toteBag.webp" alt="Krispy Kreme Fundraiser"/>
+            <h1>TOTE BAG SALE</h1>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ex vitae vulputate volutpat.
+                Phasellus dictum dui sed risus</h2>
+        </div>
+        <div class = "hiddenPastEvent">
+            <img src="../assets/foreground/getInvolved3-krispyKreme.webp" alt="Krispy Kreme Fundraiser"/>
+            <h1>KRISPY KREME</h1>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum ex vitae vulputate volutpat.
+                Phasellus dictum dui sed risus</h2>
+        </div>
+        <button id="expandPastEvents" class="transparent-button">
+            See More
+        </button>
         <!-- Define cards in js for re-usability? -->
         <!--
         Add a see more button that just unhides the rest of the events.
@@ -63,9 +99,6 @@
         That should be easily accomplished with a simple `display: none` by default
         -->
         <!-- Might have to use different z-layers or divs entirely to get the off-bg effect -->
-        <button id="expandPastEvents">
-
-        </button>
     </div>
 </ecf-wrapper>
 </body>

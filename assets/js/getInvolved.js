@@ -6,4 +6,5 @@ expandEventsButton.addEventListener("click", () => {
     hiddenPastEvents.forEach(e => {
         e.classList.remove("hiddenPastEvent");
     });
+    expandEventsButton.classList.add("hidden");
 }, false);

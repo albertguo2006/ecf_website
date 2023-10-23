@@ -108,7 +108,6 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
 
     // This is used, unlike what the IDE might claim
     connectedCallback() {
-        this.setAttribute("class", "wrapper");
         this.innerHTML = `
         <ecf-nav></ecf-nav>
         <div class="content">${this.innerHTML}</div>
