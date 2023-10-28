@@ -566,9 +566,30 @@ footer {
 }
 
 .getInvolved4 {
-    background-color: var(--ecf-green);
+    display: flex;
+    overflow: auto;
+    column-gap: 5vw;
     padding: 5vh 5vw;
+    justify-content: space-evenly;
+    background-color: var(--ecf-green);
 }
+
+.getInvolved4-pastEvent {
+    width: 30vw;
+    height: 60vh;
+    text-align: center;
+}
+
+.getInvolved4-pastEvent > img {
+    width: 100%;
+    height: 50%;
+}
+
+.getInvolved4-pastEvent > div {
+    background-color: white;
+}
+
+
 
 .getInvolved4 > .transparent-button {
     color: white;
