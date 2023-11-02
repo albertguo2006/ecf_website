@@ -104,7 +104,7 @@ nav img {
     color: black;
 }
 
-nav ul {
+nav > ul {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -119,20 +119,32 @@ nav ul {
 nav li {
     /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
     position: relative;
-    /* Borders are used to help denote what is the current page. Kinda hacky, but it works. See more in .current */
-    border-top: 1vh solid white;
-    border-bottom: 1vh solid white;
     /*
     This specific border behaviour causes weird artifacting, but I think I prefer it this way.
     No specific reason why these border sizes were chose, just ensure that they are the same
+    Update: After fixing some other styles, the artifacting seems to be mostly gone.
     */
-    border-left: 0.007vw solid var(--border-color);
-    border-right: 0.007vw solid var(--border-color);
+    border-left: 0.15vw solid var(--border-color);
 }
 
-.nav-home-border {
+nav li:first-child {
     /* We don't want a left divider on the left most element */
     border-left: 0;
+}
+
+nav li:last-child {
+    /* Remove the left divider between the last and second last element as the last is expected to be a different colour */
+    border-left: 0;
+}
+
+nav li:last-child > a {
+    /* This is expected to be the donate button */
+    background-color: var(--ecf-green);
+}
+
+nav li:last-child > a:hover {
+    /* This is expected to be the donate button */
+    background-color: black;
 }
 
 nav li a {
@@ -145,21 +157,17 @@ nav li a {
     background-color: white;
 }
 
-nav li a:hover {
+nav li > a:hover {
     color: var(--ecf-green);
 }
 
-.nav-current {
-    /*
-     We indicate the current page using a bottom green border.
-     This works as the element containing the content is smaller than the actual nav, but with top and bottom borders.
-     This allows us to just change tho colour of the border to indicate the current page.
-     However, this does come with the tradeoff that when the border is clicked (specifically the default top and bottom borders),
-     the link that the border is clicking will not be clicked.
-     This seems like a worthy tradeoff though,
-     as the only noticeable affected area is the tiny bit between the top of the screen and the respective nav element.
-    */
-    border-bottom: 1vh solid var(--ecf-green);
+.nav-current-indicator {
+    position: absolute;
+    /* We want the indicator to be at the bottom of the nav */
+    bottom: 0;
+    width: 100%;
+    height: 1vh;
+    background-color: var(--ecf-green);
 }
 
 /* Some stuff to affect the display of the dropdown/caret icon */
@@ -170,15 +178,15 @@ nav li a:hover {
 }
 
 /* Some code to change the display of the up/down caret depending on whether it's parent is being hovered on. */
-.nav-about-caret > .fa-caret-up {
+nav .nav-about-caret > .fa-caret-up {
     display: none;
 }
 
-li:hover > .nav-dropdown, li:hover .nav-about-caret > .fa-caret-up {
+nav li:hover > .nav-dropdown, nav li:hover .nav-about-caret > .fa-caret-up {
     display: block;
 }
 
-li:hover .nav-about-caret > .fa-caret-down {
+nav li:hover .nav-about-caret > .fa-caret-down {
     display: none;
 }
 
@@ -202,39 +210,11 @@ This also has the added benefit of still showing the dropdown contents even when
     background-color: var(--border-color);
 }
 
-.nav-dropdown-content a {
+.nav-dropdown-content > a {
     /* Slightly off left effect */
     padding: 0.75vw;
     justify-content: left;
 }
-
-/*
-Borders are used to help denote what is the current page.
-Unlike all other elements, the default for this is green.
-See more in .current
-*/
-.nav-donate-border {
-    border-top: 1.5vh solid var(--ecf-green);
-    border-bottom: 1.5vh solid var(--ecf-green);
-    /* If we don't remove this, the right of the screen will have a tiny white border*/
-    border-right: 0;
-}
-
-.nav-donate-border:hover {
-    border-top: 1.5vh solid black;
-    border-bottom: 1.5vh solid black;
-}
-
-.nav-donate {
-    background-color: var(--ecf-green);
-}
-
-/* We listen to the hover of the border as we want uniform transitions in .nav-donate when the border is hovered */
-.nav-donate-border:hover .nav-donate {
-    background-color: black;
-    color: var(--ecf-green);
-}
-
 /* Nav end */
 
 .content {

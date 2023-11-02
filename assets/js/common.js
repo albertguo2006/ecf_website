@@ -41,12 +41,12 @@ customElements.define("ecf-nav", class extends HTMLElement {
                 <img src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
             </a>
             <ul id="nav-list">
-                <li class="nav-home-border"><a href=${prefix === "" ? "/" : `${prefix}/`}>HOME</a></li>
+                <li><a href=${prefix === "" ? "/" : `${prefix}/`}>HOME</a></li>
                 <li><a href="${prefix}/get-involved/">GET INVOLVED</a></li>
                 <li>
                     <!-- The spacing here is to make the caret down actually look good-->
                     <a id="nav-about" href="${prefix}/about-us/">ABOUT US&nbsp;&nbsp;
-                        <div class="nav-about-caret">
+                        <div class="nav-about-caret"> <!-- This div exists to help limit scopes -->
                             <i class="fa-solid fa-caret-down"></i>
                             <i class="fa-solid fa-caret-up"></i>
                         </div>
@@ -65,12 +65,13 @@ customElements.define("ecf-nav", class extends HTMLElement {
                     </div>
                 </li>
                 <li><a href="https://blog.evergreencollective.ca/">BLOG</a></li>
-                <li class="nav-donate-border"><a class="nav-donate" href="${prefix}/donate/">DONATE</a></li>
+                <li><a href="${prefix}/donate/">DONATE</a></li>
             </ul>
         </nav>`;
 
         const navList = document.getElementById("nav-list");
-        navList.querySelector(`a[href="${this.current}"]`).classList.add("nav-current");
+        // Use the innerHTML so that a user can still click the link if they click the indicator
+        navList.querySelector(`a[href="${this.current}"]`).innerHTML += '<div class="nav-current-indicator"></div>';
     }
 });
 
