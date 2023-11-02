@@ -215,6 +215,7 @@ This also has the added benefit of still showing the dropdown contents even when
     padding: 0.75vw;
     justify-content: left;
 }
+
 /* Nav end */
 
 .content {
@@ -281,7 +282,7 @@ footer {
     gap: 5vw;
 }
 
-.home2-left {
+.home2 > div:first-child {
     display: flex;
     flex-direction: column;
     row-gap: 1vh;
@@ -290,12 +291,12 @@ footer {
     place-content: center;
 }
 
-.home2-left > h1 {
+.home2 > div:first-child > h1 {
     color: var(--ecf-green);
     padding: 1vh 0 2vh;
 }
 
-.home2-right {
+.home2 > img {
     /* Magic to make it so that the image auto resizes */
     display: flex;
     max-width: 100%;
@@ -383,7 +384,7 @@ footer {
     grid-template-rows: 1fr 2fr;
 }
 
-.home4-top {
+.home4 > div:first-child {
     display: flex;
     flex-direction: row;
     padding: 15vh 5vw 5vh 0;
@@ -411,14 +412,14 @@ footer {
     font-size: calc(var(--h2-size) * 1.35);
 }
 
-.home4-bottom {
+.home4 > div:last-child {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 2vw;
     margin: 0 5vw;
 }
 
-.home4-left {
+.home4 > div:last-child > img {
     display: flex;
     max-width: 100%;
     max-height: 100%;
@@ -428,7 +429,7 @@ footer {
     padding: 0 0 10vh;
 }
 
-.home4-right {
+.home4 > div:last-child > div {
     display: flex;
     flex-direction: column;
     row-gap: 4vh;
@@ -477,7 +478,7 @@ footer {
     padding: 20vh 5vw 10vh;
 }
 
-.getInvolved2-top {
+.getInvolved2 > div:first-child {
     display: flex;
     flex-direction: column;
     row-gap: 10vh;
@@ -487,13 +488,13 @@ footer {
     text-align: center;
 }
 
-.getInvolved2-bottom {
+.getInvolved2 > div:last-child {
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
 }
 
-.getInvolved2-bottom > h1 {
+.getInvolved2 > div:last-child > h1 {
     color: var(--ecf-green);
 }
 
@@ -547,7 +548,7 @@ footer {
     row-gap: 5vh;
     padding: 5vh 1vw;
     justify-content: space-evenly;
-    background-color: var(--ecf-green);
+    background-color: white;
 }
 
 .getInvolved4-pastEvent {
