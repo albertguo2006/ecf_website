@@ -2,11 +2,11 @@
     --ecf-green: #749B88;
     --ecf-green-rgb: 116, 155, 136;
     --ecf-red: #FC6467;
-    --link-blue: #2F80ED;
     --border-color: silver;
     --nav-height: 10vh;
     --h1-size: 3vw;
     --h2-size: 1.4vw;
+    --arbitrary-card-min-width: 250px;
 }
 
 * {
@@ -30,7 +30,7 @@ a {
 }
 
 a:hover {
-    color: var(--link-blue);
+    color: var(--ecf-green);
 }
 
 html, body {
@@ -74,6 +74,12 @@ body, .wrapper {
     border-radius: 1rem;
     padding: 2vh 0;
     text-align: center;
+    font-weight: bolder;
+}
+
+.transparent-button-black:hover {
+    color: var(--ecf-green);
+    background-color: black;
 }
 
 .transparent-button-white {
@@ -84,6 +90,12 @@ body, .wrapper {
     border-radius: 1rem;
     padding: 2vh 0;
     text-align: center;
+    font-weight: bolder;
+}
+
+.transparent-button-white:hover {
+    color: var(--ecf-green);
+    background-color: white;
 }
 
 /* Nav start */
@@ -543,18 +555,37 @@ footer {
 
 .getInvolved4 {
     display: flex;
+    flex-direction: column;
+    background-color: var(--ecf-green)
+}
+
+.getInvolved4 > div:first-child {
+    display: flex;
+    flex-direction: column;
+    padding: 15vh 5vw 28vh;
+    row-gap: 5vh;
+    background-color: white;
+}
+
+.getInvolved4 > div:first-child > h1 {
+    color: var(--ecf-green);
+}
+
+.getInvolved4 > div:nth-child(2) {
+    display: flex;
     flex-wrap: wrap;
     column-gap: 2vw;
     row-gap: 5vh;
     padding: 5vh 1vw;
+    /* abs(negative margin) needs to be less than the bottom padding for .getInvolved4 > div:first-child*/
+    margin: -20vh 0 0;
     justify-content: space-evenly;
-    background-color: white;
 }
 
 .getInvolved4-pastEvent {
     width: 28vw;
     /* Arbitrary width to ensure that it wraps */
-    min-width: 250px;
+    min-width: var(--arbitrary-card-min-width);
     padding: 0 0 5vh;
     text-align: center;
     background-color: white;
@@ -575,6 +606,17 @@ footer {
 
 .getInvolved4-pastEvent h2 {
     line-height: 1.5;
+}
+
+.getInvolved4 > .transparent-button-white {
+    align-self: center;
+    margin: 3vh 0 5vh;
+    min-width: var(--arbitrary-card-min-width);
+}
+
+.getInvolved4-filler {
+    height: 5vh;
+    background-color: white;
 }
 
 /* Hidden Past Event NEEDS to be at the bottom to override all other styles */
