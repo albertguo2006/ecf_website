@@ -1,3 +1,4 @@
+/* Note that if magic numbers are used, chances is that there's no special meaning behind it and that it just looks nice */
 :root {
     --ecf-green: #749B88;
     --ecf-green-rgb: 116, 155, 136;
@@ -472,11 +473,13 @@ footer {
     color: white;
 }
 
+/* Add more emphasis to the text */
 .getInvolved1-overlay > h1 {
     font-size: calc(var(--h1-size) * 1.35);
     color: white;
 }
 
+/* Add more emphasis to the text */
 .getInvolved1-overlay > h2 {
     font-size: calc(var(--h2-size) * 1.35);
     color: white;
@@ -518,7 +521,6 @@ footer {
     position: relative;
 }
 
-/* TODO WORK NEEDED FOR GET INVOLVED TO MAKE IT LOOK NICE WHEN SCALED! */
 .getInvolved3-oval {
     position: absolute;
     width: 145%;
@@ -577,14 +579,17 @@ footer {
     column-gap: 2vw;
     row-gap: 5vh;
     padding: 5vh 1vw;
-    /* abs(negative margin) needs to be less than the bottom padding for .getInvolved4 > div:first-child*/
+    /*
+    abs(negative margin) needs to be less than the bottom padding for .getInvolved4 > div:first-child.
+    This is needed so that the cards flow into a white background
+    */
     margin: -20vh 0 0;
     justify-content: space-evenly;
 }
 
 .getInvolved4-pastEvent {
     width: 28vw;
-    /* Arbitrary width to ensure that it wraps */
+    /* Arbitrary min-width to ensure that it wraps */
     min-width: var(--arbitrary-card-min-width);
     padding: 0 0 5vh;
     text-align: center;
@@ -618,6 +623,8 @@ footer {
     height: 5vh;
     background-color: white;
 }
+
+/* Get Involved end */
 
 /* Hidden Past Event NEEDS to be at the bottom to override all other styles */
 .hiddenPastEvent {
