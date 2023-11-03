@@ -64,8 +64,8 @@ customElements.define("ecf-nav", class extends HTMLElement {
                         </div>
                     </div>
                 </li>
-                <li><a href="https://blog.evergreencollective.ca/">BLOG</a></li>
-                <li><a href="${prefix}/donate/">DONATE</a></li>
+                <li><a href="https://blog.evergreencollective.ca/" target="_blank" rel="noopener noreferrer">BLOG</a></li>
+                <li><a href="https://www.paypal.com/paypalme/ExpeditionPeng" target="_blank" rel="noopener noreferrer">DONATE</a></li>
             </ul>
         </nav>`;
 
