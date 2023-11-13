@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,6 +31,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Minify
+        run: |
+          pnpm i minify -g
+          # Enable globstar for recursive matching
+          shopt -s globstar
+          for file in **/*.html; do
+              minify --html $file > $file.min
+              mv $file.min $file
+          done
+          for file in **/*.css; do
+              minify --css $file > $(file%.css).min.css
+          done
+          for file in **/*.js; do
+              minify --js $file > $(file%.js).min.js
+          done
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
