@@ -1,41 +1,31 @@
 // We don't use the shadow DOM because we want styles to leak into the custom elements
-
-let prefix = "";
-customElements.define("ecf-nav", class extends HTMLElement {
-
-    // Just define the variable here so that the IDE doesn't complain
-    current = "";
-
+customElements.define("ecf-wrapper", class extends HTMLElement {
     constructor() {
         super();
-        this.current = window.location.pathname;
-
-        if (this.current === "") {
-            this.current = "/";
-        } else {
-            // Remove the name of the project name in dev environments
-            if (this.current.startsWith("/ecf_website")) {
-                prefix = "/ecf_website";
-            }
-            // Only include the first part of the path after the prefix, prefix included.
-            const pathEnd = this.current.indexOf("/", prefix !== "" ? prefix.length + 1 : 1);
-            if (pathEnd !== -1) {
-                this.current = this.current.substring(0, pathEnd + 1);
-            }
-            // Remove index.html
-            if (this.current.indexOf("index.html") !== -1) {
-                this.current = this.current.substring(0, this.current.indexOf("index.html"));
-            }
-            // Add trailing slash if not present
-            if (this.current.endsWith("/") === false) {
-                this.current += "/";
-            }
-        }
     }
 
     // This is used, unlike what the IDE might claim
     connectedCallback() {
-        this.innerHTML = `
+
+        // Check for dev environment
+        let prefix = window.location.pathname.startsWith("/ecf_website") ? "/ecf_website" : "";
+        let currentPath = window.location.pathname;
+
+        // Only include the first part of the path after the prefix, prefix included.
+        const pathEnd = currentPath.indexOf("/", prefix !== "" ? prefix.length + 1 : 1);
+        if (pathEnd !== -1) {
+            currentPath = currentPath.substring(0, pathEnd + 1);
+        }
+        // Remove index.html
+        if (currentPath.indexOf("index.html") !== -1) {
+            currentPath = currentPath.substring(0, currentPath.indexOf("index.html"));
+        }
+        // Add trailing slash if not present
+        if (currentPath.endsWith("/") === false) {
+            currentPath += "/";
+        }
+
+        const navHTML = `
         <nav>
             <a class="logo" href=${prefix === "" ? "/" : `${prefix}/`}>
                 <img src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
@@ -69,50 +59,23 @@ customElements.define("ecf-nav", class extends HTMLElement {
             </ul>
         </nav>`;
 
-        const navList = document.getElementById("nav-list");
-        // Use the innerHTML so that a user can still click the link if they click the indicator
-        navList.querySelector(`a[href="${this.current}"]`).innerHTML += '<div class="nav-current-indicator"></div>';
-    }
-});
-
-customElements.define("ecf-footer", class extends HTMLElement {
-
-    constructor() {
-        super();
-    }
-
-    // This is used, unlike what the IDE might claim
-    connectedCallback() {
-        this.innerHTML = `
+        const footerHTML = `
         <footer>
-            <div class="contact">
-                <h1>CONTACT US</h1>
-            </div>
+            <div class="contact"><h1>CONTACT US</h1></div>
             <div class="socials">
-                <a href="mailto:evergreencollectivefound@gmail.com"><i
-                    class="fa-regular fa-envelope fa-2xl"></i></a>
-                <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i
-                    class="fa-brands fa-facebook-f fa-2xl"></i></a>
-                <a href="https://www.instagram.com/evergreencollect/"><i
-                    class="fa-brands fa-instagram fa-2xl"></i></a>
-                <a href="https://ca.linkedin.com/company/evergreencollective"><i
-                    class="fa-brands fa-linkedin-in fa-2xl"></i></a>
+                <a href="mailto:evergreencollectivefound@gmail.com"><i class="fa-regular fa-envelope fa-2xl"></i></a>
+                <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
+                <a href="https://www.instagram.com/evergreencollect/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                <a href="https://ca.linkedin.com/company/evergreencollective"><i class="fa-brands fa-linkedin-in fa-2xl"></i></a>
             </div>
         </footer>`;
-    }
-});
 
-customElements.define("ecf-wrapper", class extends HTMLElement {
-    constructor() {
-        super();
-    }
+        this.innerHTML = `${navHTML}<div class="content">${this.innerHTML}</div>${footerHTML}`;
 
-    // This is used, unlike what the IDE might claim
-    connectedCallback() {
-        this.innerHTML = `
-        <ecf-nav></ecf-nav>
-        <div class="content">${this.innerHTML}</div>
-        <ecf-footer></ecf-footer>`;
+        // Add the current indicator to the appropriate nav element
+        const navList = document.getElementById("nav-list");
+        // Use the innerHTML so that a user can still click the link if they click the indicator
+        navList.querySelector(`a[href="${currentPath}"]`).innerHTML += '<div class="nav-current-indicator"></div>';
     }
 });
 
