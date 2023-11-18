@@ -1,3 +1,4 @@
+/* The following css file follows the BEM naming convention (https://getbem.com/naming/) */
 /* Note that if magic numbers are used, chances is that there's no special meaning behind it and that it just looks nice */
 :root {
     --ecf-green: #749B88;
@@ -55,19 +56,17 @@ body, .wrapper {
     background-size: cover;
 }
 
-.orange-bar-10 {
+.orange-bar {
     width: 10vw;
     height: 0;
     border-top: 0.7vh solid var(--ecf-red);
 }
 
-.orange-bar-20 {
+.orange-bar--20 {
     width: 20vw;
-    height: 0;
-    border-top: 0.7vh solid var(--ecf-red);
 }
 
-.transparent-button-black {
+.transparent-button {
     width: 25vw;
     color: black;
     background: rgba(0, 0, 0, 0);
@@ -78,25 +77,25 @@ body, .wrapper {
     font-weight: bolder;
 }
 
-.transparent-button-black:hover {
+.transparent-button:hover {
     color: var(--ecf-green);
     background-color: black;
 }
 
-.transparent-button-white {
-    width: 25vw;
+.transparent-button--white {
     color: white;
-    background: rgba(0, 0, 0, 0);
-    border: 0.1rem solid white;
-    border-radius: 1rem;
-    padding: 2vh 0;
-    text-align: center;
-    font-weight: bolder;
+    border-color: white;
 }
 
-.transparent-button-white:hover {
-    color: var(--ecf-green);
+.transparent-button--white:hover {
     background-color: white;
+}
+
+.content {
+    /* Default sticky footer stuff*/
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
 }
 
 /* Nav start */
@@ -110,7 +109,7 @@ nav {
     align-items: center;
 }
 
-nav img {
+nav .nav__logo {
     /* Ensure that height does not exceed var(--nav-height) */
     height: calc(var(--nav-height) - 2vh);
     padding: 0 0 0 2vw;
@@ -129,7 +128,7 @@ nav > ul {
     margin: auto 0 auto auto;
 }
 
-nav li {
+nav > ul > li {
     /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
     position: relative;
     /*
@@ -160,27 +159,39 @@ nav li:last-child > a:hover {
     background-color: black;
 }
 
-nav li a {
+nav > ul > li a {
     /* Just positioning for nav links */
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     color: black;
-    background-color: white;
 }
 
 nav li > a:hover {
     color: var(--ecf-green);
 }
 
-.nav-current-indicator {
+nav > ul > li > a > .nav__current-indicator {
     position: absolute;
     /* We want the indicator to be at the bottom of the nav */
     bottom: 0;
     width: 100%;
     height: 1vh;
     background-color: var(--ecf-green);
+}
+
+/* Some code to change the display of the up/down caret depending on whether it's parent is being hovered on. */
+nav .nav__about-caret > .fa-caret-up {
+    display: none;
+}
+
+nav li:hover > .nav-dropdown, nav li:hover .nav__about-caret > .fa-caret-up {
+    display: block;
+}
+
+nav li:hover .nav__about-caret > .fa-caret-down {
+    display: none;
 }
 
 /* Some stuff to affect the display of the dropdown/caret icon */
@@ -190,53 +201,37 @@ nav li > a:hover {
     width: 100%;
 }
 
-/* Some code to change the display of the up/down caret depending on whether it's parent is being hovered on. */
-nav .nav-about-caret > .fa-caret-up {
-    display: none;
-}
-
-nav li:hover > .nav-dropdown, nav li:hover .nav-about-caret > .fa-caret-up {
-    display: block;
-}
-
-nav li:hover .nav-about-caret > .fa-caret-down {
-    display: none;
-}
-
 /*
 We use separate elements for border and content because we need them to be a different colour
 While the border is white, the gap between the content isn't.
 Trying to put these two requirements in the same element would be a pain, and it's probably just easier to use two divs.
 This also has the added benefit of still showing the dropdown contents even when the mouse is slightly outside of it.
 */
-.nav-dropdown-border {
+.nav-dropdown__border {
     display: flex;
     flex-direction: column;
     padding: 0 0.75vw;
     background-color: white;
 }
 
-.nav-dropdown-content {
+.nav-dropdown__content {
     display: flex;
     flex-direction: column;
-    row-gap: 0.15rem;
-    background-color: var(--border-color);
 }
 
-.nav-dropdown-content > a {
+.nav-dropdown__content > a {
     /* Slightly off left effect */
     padding: 0.75vw;
     justify-content: left;
+    border-top: 0.15rem solid var(--border-color)
+}
+
+.nav-dropdown__content > a:first-child {
+    /* Remove the top border on the first element */
+    border-top: 0;
 }
 
 /* Nav end */
-
-.content {
-    /* Default sticky footer stuff*/
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-}
 
 /* Footer start */
 /* TODO minor adjustments for mobile footer*/
@@ -255,15 +250,13 @@ footer {
     background-size: cover;
 }
 
-.contact {
-    display: flex;
-    flex-direction: column;
+footer .footer__contact {
     text-align: center;
     width: 100%;
     font-size: 1.4vw;
 }
 
-.socials {
+footer .footer__socials {
     display: flex;
     /* Width is restricted to ensure a closer spread of the icons */
     width: 35%;
@@ -274,11 +267,11 @@ footer {
 /* Footer end*/
 
 /* Home start */
-.home1-bg {
-    background-image: url("../background/home1.webp");
+.home-1__bg {
+    background-image: url("../background/home-1.webp");
 }
 
-.home1-overlay {
+.home-1__overlay {
     display: flex;
     flex-direction: column;
     row-gap: 4vh;
@@ -288,14 +281,14 @@ footer {
     color: white;
 }
 
-.home2 {
+.home-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10vh 5vw;
     gap: 5vw;
 }
 
-.home2 > div:first-child {
+.home-2 > div:first-child {
     display: flex;
     flex-direction: column;
     row-gap: 1vh;
@@ -304,12 +297,12 @@ footer {
     place-content: center;
 }
 
-.home2 > div:first-child > h1 {
+.home-2 > div:first-child > h1 {
     color: var(--ecf-green);
     padding: 1vh 0 2vh;
 }
 
-.home2 > img {
+.home-2 > img {
     /* Magic to make it so that the image auto resizes */
     display: flex;
     max-width: 100%;
@@ -319,53 +312,43 @@ footer {
     align-self: center;
 }
 
-.home3 {
+.home-3 {
     position: relative;
     width: 100vw;
 }
 
-.home3-bg {
+.home-3__bg {
     display: flex;
     /* Flex shrink needed to ensure that the images will take up the full screen and not share it*/
     flex-shrink: 0;
     /* These shouldn't be necessary, but JIC ig */
     width: 100vw;
     height: 100vh;
+    background-image: url("../background/home-3-post-1.webp");
 }
 
-.home3-bg1 {
-    background-image: url("../background/home3-post1.webp");
+.home-3__bg--2 {
+    background-image: url("../background/home-3-post-2.webp");
 }
 
-.home3-bg2 {
-    background-image: url("../background/home3-post2.webp");
-}
-
-.home3-nav {
+.home-3__nav {
     display: flex;
     /* This is just absolute within the parent div */
     position: absolute;
     /* Left and right need to be so that width exactly == 100vw */
-    --home3-nav-width: 15vw;
-    width: var(--home3-nav-width);
-    left: calc((100vw - var(--home3-nav-width)) / 2);
+    --home-3-nav-width: 15vw;
+    width: var(--home-3-nav-width);
+    left: calc((100vw - var(--home-3-nav-width)) / 2);
     bottom: 10vh;
     justify-content: space-evenly;
-    /* z index MUST be higher than that of home3-posts*/
+    /* z index MUST be higher than that of home-3__posts*/
     z-index: 2;
 }
 
-.home3-nav > a {
+.home-3__nav > a {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-}
-
-.home3-posts {
-    display: flex;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    z-index: 1;
 }
 
 .not-current-post {
@@ -377,7 +360,14 @@ footer {
     background-color: white;
 }
 
-.post-overlay {
+.home-3__posts {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    z-index: 1;
+}
+
+.home-3__post-overlay {
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
@@ -387,52 +377,52 @@ footer {
 }
 
 /* Use padding to further separate the elements instead of just using row-gap because we don't want an even gap */
-.post-overlay > h2 {
+.home-3__post-overlay > h2 {
     padding: 0 0 1vh;
     line-height: 1.5;
 }
 
-.home4 {
+.home-4 {
     display: grid;
     grid-template-rows: 1fr 2fr;
 }
 
-.home4 > div:first-child {
+.home-4 > div:first-child {
     display: flex;
     flex-direction: row;
     padding: 15vh 5vw 5vh 0;
     justify-content: space-evenly;
 }
 
-.home4-stats {
+.home-4__stats {
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
 }
 
 /* Font sized is increased to draw more attention to the numbers */
-.home4-stats > h1 {
+.home-4__stats > h1 {
     font-size: calc(var(--h1-size) * 1.35);
     color: var(--ecf-green);
 }
 
 /* Set the first one to red cause we want to draw the most attention to that */
-.home4-stats:nth-child(1) > h1 {
+.home-4__stats:nth-child(1) > h1 {
     color: var(--ecf-red);
 }
 
-.home4-stats > h2 {
+.home-4__stats > h2 {
     font-size: calc(var(--h2-size) * 1.35);
 }
 
-.home4 > div:last-child {
+.home-4 > div:last-child {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 2vw;
     margin: 0 5vw;
 }
 
-.home4 > div:last-child > img {
+.home-4 > div:last-child > img {
     display: flex;
     max-width: 100%;
     max-height: 100%;
@@ -442,7 +432,7 @@ footer {
     padding: 0 0 10vh;
 }
 
-.home4 > div:last-child > div {
+.home-4 > div:last-child > div {
     display: flex;
     flex-direction: column;
     row-gap: 4vh;
@@ -451,18 +441,21 @@ footer {
     align-self: center;
 }
 
-.home4-difference {
+.home-4__difference {
     color: var(--ecf-green);
 }
 
 /* Home end */
 
 /* Get Involved start */
-.getInvolved1-bg {
-    background-image: url("../background/getInvolved1.webp");
+.get-involved-1 {
 }
 
-.getInvolved1-overlay {
+.get-involved-1__bg {
+    background-image: url("../background/get-involved-1.webp");
+}
+
+.get-involved-1__overlay {
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
@@ -474,18 +467,18 @@ footer {
 }
 
 /* Add more emphasis to the text */
-.getInvolved1-overlay > h1 {
+.get-involved-1__overlay > h1 {
     font-size: calc(var(--h1-size) * 1.35);
     color: white;
 }
 
 /* Add more emphasis to the text */
-.getInvolved1-overlay > h2 {
+.get-involved-1__overlay > h2 {
     font-size: calc(var(--h2-size) * 1.35);
     color: white;
 }
 
-.getInvolved2 {
+.get-involved-2 {
     display: flex;
     flex-direction: column;
     row-gap: 10vh;
@@ -493,7 +486,7 @@ footer {
     padding: 20vh 5vw 10vh;
 }
 
-.getInvolved2 > div:first-child {
+.get-involved-2 > div:first-child {
     display: flex;
     flex-direction: column;
     row-gap: 10vh;
@@ -503,25 +496,25 @@ footer {
     text-align: center;
 }
 
-.getInvolved2 > div:last-child {
+.get-involved-2 > div:last-child {
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
 }
 
-.getInvolved2 > div:last-child > h1 {
+.get-involved-2 > div:last-child > h1 {
     color: var(--ecf-green);
 }
 
-.getInvolved3-bg {
-    background-image: url("../background/getInvolved3.webp");
-}
-
-.getInvolved3 {
+.get-involved-3 {
     position: relative;
 }
 
-.getInvolved3-oval {
+.get-involved-3__bg {
+    background-image: url("../background/get-involved-3.webp");
+}
+
+.get-involved-3__oval {
     position: absolute;
     width: 145%;
     height: 100%;
@@ -533,7 +526,7 @@ footer {
     border-top-right-radius: 50% 100%;
 }
 
-.getInvolved3-overlay {
+.get-involved-3__overlay {
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
@@ -543,25 +536,25 @@ footer {
     color: white;
 }
 
-.getInvolved3-overlay > h1 {
+.get-involved-3__overlay > h1 {
     width: 40vw;
     line-height: 1.5;
     font-size: calc(var(--h1-size) * 1.35);
     padding: 5vh 0;
 }
 
-.getInvolved3-overlay > h2 {
+.get-involved-3__overlay > h2 {
     width: 20vw;
     line-height: 1.5;
 }
 
-.getInvolved4 {
+.get-involved-4 {
     display: flex;
     flex-direction: column;
     background-color: var(--ecf-green)
 }
 
-.getInvolved4 > div:first-child {
+.get-involved-4 > div:first-child {
     display: flex;
     flex-direction: column;
     padding: 15vh 5vw 28vh;
@@ -569,11 +562,11 @@ footer {
     background-color: white;
 }
 
-.getInvolved4 > div:first-child > h1 {
+.get-involved-4 > div:first-child > h1 {
     color: var(--ecf-green);
 }
 
-.getInvolved4 > div:nth-child(2) {
+.get-involved-4 > div:nth-child(2) {
     display: flex;
     flex-wrap: wrap;
     column-gap: 2vw;
@@ -587,7 +580,7 @@ footer {
     justify-content: space-evenly;
 }
 
-.getInvolved4-pastEvent {
+.get-involved-4__past-event {
     width: 28vw;
     /* Arbitrary min-width to ensure that it wraps */
     min-width: var(--arbitrary-card-min-width);
@@ -596,45 +589,51 @@ footer {
     background-color: white;
 }
 
-.getInvolved4-pastEvent > img {
+.get-involved-4__past-event > img {
     width: 100%;
     height: 30vh;
 }
 
-.getInvolved4-pastEvent > div {
+.get-involved-4__past-event > div {
     padding: 1vh 3vw 0;
 }
 
-.getInvolved4-pastEvent h1 {
+.get-involved-4__past-event h1 {
     font-size: calc(var(--h1-size) * 0.75);
 }
 
-.getInvolved4-pastEvent h2 {
+.get-involved-4__past-event h2 {
     line-height: 1.5;
 }
 
-.getInvolved4 > .transparent-button-white {
+.get-involved-4__past-event--hidden {
+    display: none;
+}
+
+.get-involved-4 > .transparent-button--white {
     align-self: center;
     margin: 3vh 0 5vh;
     min-width: var(--arbitrary-card-min-width);
 }
 
-.getInvolved4-filler {
+.get-involved-4 > .transparent-button--hidden {
+    display: none;
+}
+
+.get-involved-4__filler {
     height: 5vh;
     background-color: white;
 }
 
 /* Get Involved end */
 
-/* Hidden Past Event NEEDS to be at the bottom to override all other styles */
-.hiddenPastEvent {
-    display: none;
+/* About Us start */
+.about-us-1 {
+
 }
 
-/* Hidden NEEDS to be at the bottom to override all other styles */
-.hidden {
-    display: none;
-}
+
+/* About Us end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
 .lazy-load {

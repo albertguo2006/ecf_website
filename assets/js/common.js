@@ -27,8 +27,8 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
 
         const navHTML = `
         <nav>
-            <a class="logo" href=${prefix === "" ? "/" : `${prefix}/`}>
-                <img src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
+            <a href=${prefix === "" ? "/" : `${prefix}/`}>
+                <img class="nav__logo" src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
             </a>
             <ul id="nav-list">
                 <li><a href=${prefix === "" ? "/" : `${prefix}/`}>HOME</a></li>
@@ -36,14 +36,14 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
                 <li>
                     <!-- The spacing here is to make the caret down actually look good-->
                     <a id="nav-about" href="${prefix}/about-us/">ABOUT US&nbsp;&nbsp;
-                        <div class="nav-about-caret"> <!-- This div exists to help limit scopes -->
+                        <div class="nav__about-caret"> <!-- This div exists to help limit scopes -->
                             <i class="fa-solid fa-caret-down"></i>
                             <i class="fa-solid fa-caret-up"></i>
                         </div>
                     </a>
                     <div class="nav-dropdown">
-                        <div class="nav-dropdown-border">
-                            <div class="nav-dropdown-content">
+                        <div class="nav-dropdown__border">
+                            <div class="nav-dropdown__content">
                                 <a href="${prefix}/about-us/Canada/AB/">AB - Canada</a>
                                 <a href="${prefix}/about-us/Canada/BC/">BC - Canada</a>
                                 <a href="${prefix}/about-us/Canada/ON/">ON - Canada</a>
@@ -61,8 +61,8 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
 
         const footerHTML = `
         <footer>
-            <div class="contact"><h1>CONTACT US</h1></div>
-            <div class="socials">
+            <div class="footer__contact"><h1>CONTACT US</h1></div>
+            <div class="footer__socials">
                 <a href="mailto:evergreencollectivefound@gmail.com"><i class="fa-regular fa-envelope fa-2xl"></i></a>
                 <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
                 <a href="https://www.instagram.com/evergreencollect/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
@@ -77,7 +77,7 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
         // Add the current indicator to the appropriate nav element
         const navList = document.getElementById("nav-list");
         // Use the innerHTML so that a user can still click the link if they click the indicator
-        navList.querySelector(`a[href="${currentPath}"]`).innerHTML += '<div class="nav-current-indicator"></div>';
+        navList.querySelector(`a[href="${currentPath}"]`).innerHTML += '<div class="nav__current-indicator"></div>';
     }
 });
 

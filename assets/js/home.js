@@ -1,9 +1,14 @@
 // Correctly identify what post is selected on page load, if any
 window.onload = () => {
     const fragment = window.location.hash;
+    // Deselect all selected posts
+    document.querySelectorAll(".current-post").forEach(post => {
+        post.classList.remove("current-post");
+        post.classList.add("not-current-post");
+    });
     const inactiveSelectors = document.querySelectorAll(".not-current-post");
-    const inactiveSelector = (fragment && fragment !== "#post1" && fragment.startsWith("#post")) ?
-        inactiveSelectors[Number(fragment.replace("#post", "")) - 1] : inactiveSelectors[0];
+    const inactiveSelector = (fragment && fragment !== "#home-3-post-1" && fragment.startsWith("#home-3-post-")) ?
+        inactiveSelectors[Number(fragment.replace("#home-3-post-", "")) - 1] : inactiveSelectors[0];
     inactiveSelector.classList.remove("not-current-post");
     inactiveSelector.classList.add("current-post");
 }
@@ -24,9 +29,9 @@ document.onclick = e => {
 const initStats = {
     // Stats may need to be formatted so that we get numbers without errors
 
-    "dollars": Number(document.getElementById("home4-stats-dollars").innerHTML.replace("$", "").replace(",", "")),
-    "volunteers": Number(document.getElementById("home4-stats-volunteers").innerHTML.replace("+", "")),
-    "events": Number(document.getElementById("home4-stats-events").innerHTML)
+    "dollars": Number(document.getElementById("home-4-stats-dollars").innerHTML.replace("$", "").replace(",", "")),
+    "volunteers": Number(document.getElementById("home-4-stats-volunteers").innerHTML.replace("+", "")),
+    "events": Number(document.getElementById("home-4-stats-events").innerHTML)
 }
 
 const statsObserver = new IntersectionObserver(entries => {
@@ -46,7 +51,7 @@ const statsObserver = new IntersectionObserver(entries => {
         const timeout = () => targetedCompletionMs / (target / increment);
 
         switch (entry.target.id) {
-            case "home4-stats-dollars":
+            case "home-4-stats-dollars":
                 target = initStats["dollars"];
                 increment = 100;
 
@@ -62,7 +67,7 @@ const statsObserver = new IntersectionObserver(entries => {
                 }, timeout());
                 break;
 
-            case "home4-stats-volunteers":
+            case "home-4-stats-volunteers":
                 target = initStats["volunteers"];
                 increment = 1;
 
@@ -77,7 +82,7 @@ const statsObserver = new IntersectionObserver(entries => {
                 }, timeout());
                 break;
 
-            case "home4-stats-events":
+            case "home-4-stats-events":
                 target = initStats["events"];
                 increment = 1;
 
@@ -95,6 +100,6 @@ const statsObserver = new IntersectionObserver(entries => {
     })
 });
 
-statsObserver.observe(document.getElementById("home4-stats-dollars"));
-statsObserver.observe(document.getElementById("home4-stats-volunteers"));
-statsObserver.observe(document.getElementById("home4-stats-events"));
+statsObserver.observe(document.getElementById("home-4-stats-dollars"));
+statsObserver.observe(document.getElementById("home-4-stats-volunteers"));
+statsObserver.observe(document.getElementById("home-4-stats-events"));
