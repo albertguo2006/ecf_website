@@ -70,7 +70,9 @@ customElements.define("ecf-wrapper", class extends HTMLElement {
             </div>
         </footer>`;
 
+        // For some reason, the class content needs to be applied to both the wrapper and the content div
         this.innerHTML = `${navHTML}<div class="content">${this.innerHTML}</div>${footerHTML}`;
+        this.classList.add("content");
 
         // Add the current indicator to the appropriate nav element
         const navList = document.getElementById("nav-list");
