@@ -1,0 +1,16 @@
+{
+  "name": "ecf_website",
+  "version": "1.0.0",
+  "description": "A website redesign for ECF",
+  "repository": "https://github.com/albertguo2006/ecf_website.git",
+  "author": "Cloudate9 <65006925+Cloudate9@users.noreply.github.com>",
+  "license": "ARR",
+  "private": true,
+  "scripts": {
+    "dev": "parcel './src/**/index.html'",
+    "build": "parcel build './src/**/index.html'"
+  },
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
