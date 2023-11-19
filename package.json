@@ -1,16 +1,29 @@
 {
-  "name": "ecf_website",
-  "version": "1.0.0",
-  "description": "A website redesign for ECF",
-  "repository": "https://github.com/albertguo2006/ecf_website.git",
-  "author": "Cloudate9 <65006925+Cloudate9@users.noreply.github.com>",
-  "license": "ARR",
-  "private": true,
-  "scripts": {
-    "dev": "parcel './src/**/index.html'",
-    "build": "parcel build './src/**/index.html'"
-  },
-  "devDependencies": {
-    "parcel": "^2.10.3"
-  }
+    "name": "ecf_website",
+    "version": "1.0.0",
+    "description": "A website redesign for ECF",
+    "repository": "https://github.com/albertguo2006/ecf_website.git",
+    "author": "Cloudate9 <65006925+Cloudate9@users.noreply.github.com>",
+    "license": "ARR",
+    "private": true,
+    "scripts": {
+        "dev": "parcel './src/**/index.html'",
+        "build": "parcel build './src/**/index.html'",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "devDependencies": {
+        "husky": "^8.0.3",
+        "lint-staged": "^15.1.0",
+        "parcel": "^2.10.3",
+        "prettier": "3.1.0"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.4.2",
+        "@fortawesome/free-brands-svg-icons": "^6.4.2",
+        "@fortawesome/free-regular-svg-icons": "^6.4.2",
+        "@fortawesome/free-solid-svg-icons": "^6.4.2"
+    }
 }
