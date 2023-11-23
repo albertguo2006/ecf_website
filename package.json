@@ -1,0 +1,22 @@
+{
+    "name": "ecf_website",
+    "version": "1.0.0",
+    "description": "ECF website redesign ",
+    "main": "index.html",
+    "repository": "https://github.com/albertguo2006/ecf_website.git",
+    "author": "Cloudate9 <65006925+Cloudate9@users.noreply.github.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "prepare": "husky install",
+        "format": "prettier . --write --ignore-unknown"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "devDependencies": {
+        "husky": "^8.0.3",
+        "lint-staged": "^15.1.0",
+        "prettier": "3.1.0"
+    }
+}

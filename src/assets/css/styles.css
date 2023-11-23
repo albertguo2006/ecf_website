@@ -1,9 +1,9 @@
 /* The following css file follows the BEM naming convention (https://getbem.com/naming/) */
 /* Note that if magic numbers are used, chances is that there's no special meaning behind it and that it just looks nice */
 :root {
-    --ecf-green: #749B88;
+    --ecf-green: #749b88;
     --ecf-green-rgb: 116, 155, 136;
-    --ecf-red: #FC6467;
+    --ecf-red: #fc6467;
     --border-color: silver;
     --nav-height: 10vh;
     --h1-size: 3vw;
@@ -21,7 +21,8 @@ h1 {
     font-size: var(--h1-size);
 }
 
-a, h2 {
+a,
+h2 {
     font-family: "Quicksand", sans-serif;
     font-size: var(--h2-size);
 }
@@ -35,11 +36,13 @@ a:hover {
     color: var(--ecf-green);
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
-body, .wrapper {
+body,
+.wrapper {
     /* Flex to ensure sticky footer */
     display: flex;
     flex-direction: column;
@@ -186,7 +189,8 @@ nav .nav__about-caret > .fa-caret-up {
     display: none;
 }
 
-nav li:hover > .nav-dropdown, nav li:hover .nav__about-caret > .fa-caret-up {
+nav li:hover > .nav-dropdown,
+nav li:hover .nav__about-caret > .fa-caret-up {
     display: block;
 }
 
@@ -223,7 +227,7 @@ This also has the added benefit of still showing the dropdown contents even when
     /* Slightly off left effect */
     padding: 0.75vw;
     justify-content: left;
-    border-top: 0.15rem solid var(--border-color)
+    border-top: 0.15rem solid var(--border-color);
 }
 
 .nav-dropdown__content > a:first-child {
@@ -551,7 +555,7 @@ footer .footer__socials {
 .get-involved-4 {
     display: flex;
     flex-direction: column;
-    background-color: var(--ecf-green)
+    background-color: var(--ecf-green);
 }
 
 .get-involved-4 > div:first-child {
@@ -629,13 +633,22 @@ footer .footer__socials {
 
 /* About Us start */
 .about-us-1 {
-
 }
-
 
 /* About Us end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
 .lazy-load {
     background-image: none;
+}
+
+.fa-solid,
+.fa-regular,
+.fa-brands {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
 }
