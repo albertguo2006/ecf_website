@@ -9,7 +9,10 @@ customElements.define(
         // This is used, unlike what the IDE might claim
         connectedCallback() {
             // Check for dev environment
-            let prefix = window.location.pathname.startsWith("/ecf_website") ? "/ecf_website" : ""
+            let prefix =
+                window.location.pathname.startsWith("/ecf_website/src") ? "/ecf_website/src"
+                : window.location.p.startsWith("/ecf_website") ? "/ecf_website"
+                : ""
             let currentPath = window.location.pathname
 
             // Only include the first part of the path after the prefix, prefix included.
@@ -28,11 +31,11 @@ customElements.define(
 
             const navHTML = `
         <nav>
-            <a href=${prefix === "" ? "/" : `${prefix}/`}>
+            <a href="${prefix === "" ? "/" : `${prefix}/`}">
                 <img class="nav__logo" src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
             </a>
             <ul id="nav-list">
-                <li><a href=${prefix === "" ? "/" : `${prefix}/`}>HOME</a></li>
+                <li><a href="${prefix === "" ? "/" : `${prefix}/`}">HOME</a></li>
                 <li><a href="${prefix}/get-involved/">GET INVOLVED</a></li>
                 <li>
                     <!-- The spacing here is to make the caret down actually look good-->
