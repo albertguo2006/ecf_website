@@ -16,6 +16,7 @@
     },
     "devDependencies": {
         "@parcel/reporter-bundle-analyzer": "^2.10.3",
+        "@parcel/transformer-inline-string": "2.10.3",
         "husky": "^8.0.3",
         "lint-staged": "^15.1.0",
         "parcel": "^2.10.3",

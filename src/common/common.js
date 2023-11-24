@@ -71,9 +71,13 @@ customElements.define(
             </div>
         </footer>`
 
+            // const shadowRoot = this.attachShadow({ mode: "open" })
+
             // For some reason, the class content needs to be applied to both the wrapper and the content div
+            let output = document.createElement("div")
             this.innerHTML = `${navHTML}<div class="content">${this.innerHTML}</div>${footerHTML}`
-            this.classList.add("content")
+            // this.classList.add("content")
+            // shadowRoot.appendChild(output.cloneNode(true))
 
             // Add the current indicator to the appropriate nav element
             const navList = document.getElementById("nav-list")
