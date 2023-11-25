@@ -4,15 +4,12 @@ customElements.define(
     class extends HTMLElement {
         constructor() {
             super()
-        }
 
-        // This is used, unlike what the IDE might claim
-        connectedCallback() {
-            // Check for dev environment
             let prefix =
                 window.location.pathname.startsWith("/ecf_website/src") ? "/ecf_website/src"
                 : window.location.p.startsWith("/ecf_website") ? "/ecf_website"
                 : ""
+
             let currentPath = window.location.pathname
 
             // Only include the first part of the path after the prefix, prefix included.
@@ -30,49 +27,49 @@ customElements.define(
             }
 
             const navHTML = `
-        <nav>
-            <a href="${prefix === "" ? "/" : `${prefix}/`}">
-                <img class="nav__logo" src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
-            </a>
-            <ul id="nav-list">
-                <li><a href="${prefix === "" ? "/" : `${prefix}/`}">HOME</a></li>
-                <li><a href="${prefix}/get-involved/">GET INVOLVED</a></li>
-                <li>
-                    <!-- The spacing here is to make the caret down actually look good-->
-                    <a id="nav-about" href="${prefix}/about-us/">ABOUT US&nbsp;&nbsp;
-                        <div class="nav__about-caret"> <!-- This div exists to help limit scopes -->
-                            <i class="fa-solid fa-caret-down"></i>
-                            <i class="fa-solid fa-caret-up"></i>
-                        </div>
-                    </a>
-                    <div class="nav-dropdown">
-                        <div class="nav-dropdown__border">
-                            <div class="nav-dropdown__content">
-                                <a href="${prefix}/about-us/Canada/AB/">AB - Canada</a>
-                                <a href="${prefix}/about-us/Canada/BC/">BC - Canada</a>
-                                <a href="${prefix}/about-us/Canada/ON/">ON - Canada</a>
-                                <a href="${prefix}/about-us/Canada/SK/">SK - Canada</a>
-                                <a href="${prefix}/about-us/Turkey/">Turkey</a>
-                                <a href="${prefix}/about-us/USA/CA/">CA - USA</a>
+            <nav>
+                <a href="${prefix === "" ? "/" : `${prefix}/`}">
+                    <img class="nav__logo" src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
+                </a>
+                <ul id="nav-list">
+                    <li><a href="${prefix === "" ? "/" : `${prefix}/`}">HOME</a></li>
+                    <li><a href="${prefix}/get-involved/">GET INVOLVED</a></li>
+                    <li>
+                        <!-- The spacing here is to make the caret down actually look good-->
+                        <a id="nav-about" href="${prefix}/about-us/">ABOUT US&nbsp;&nbsp;
+                            <div class="nav__about-caret"> <!-- This div exists to help limit scopes -->
+                                <i class="fa-solid fa-caret-down"></i>
+                                <i class="fa-solid fa-caret-up"></i>
+                            </div>
+                        </a>
+                        <div class="nav-dropdown">
+                            <div class="nav-dropdown__border">
+                                <div class="nav-dropdown__content">
+                                    <a href="${prefix}/about-us/Canada/AB/">AB - Canada</a>
+                                    <a href="${prefix}/about-us/Canada/BC/">BC - Canada</a>
+                                    <a href="${prefix}/about-us/Canada/ON/">ON - Canada</a>
+                                    <a href="${prefix}/about-us/Canada/SK/">SK - Canada</a>
+                                    <a href="${prefix}/about-us/Turkey/">Turkey</a>
+                                    <a href="${prefix}/about-us/USA/CA/">CA - USA</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li><a href="https://blog.evergreencollective.ca/" target="_blank" rel="noopener noreferrer">BLOG</a></li>
-                <li><a href="https://www.paypal.com/paypalme/ExpeditionPeng" target="_blank" rel="noopener noreferrer">DONATE</a></li>
-            </ul>
-        </nav>`
+                    </li>
+                    <li><a href="https://blog.evergreencollective.ca/" target="_blank" rel="noopener noreferrer">BLOG</a></li>
+                    <li><a href="https://www.paypal.com/paypalme/ExpeditionPeng" target="_blank" rel="noopener noreferrer">DONATE</a></li>
+                </ul>
+            </nav>`
 
             const footerHTML = `
-        <footer>
-            <div class="footer__contact"><h1>CONTACT US</h1></div>
-            <div class="footer__socials">
-                <a href="mailto:evergreencollectivefound@gmail.com"><i class="fa-regular fa-envelope fa-2xl"></i></a>
-                <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
-                <a href="https://www.instagram.com/evergreencollect/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-                <a href="https://ca.linkedin.com/company/evergreencollective"><i class="fa-brands fa-linkedin-in fa-2xl"></i></a>
-            </div>
-        </footer>`
+            <footer>
+                <div class="footer__contact"><h1>CONTACT US</h1></div>
+                <div class="footer__socials">
+                    <a href="mailto:evergreencollectivefound@gmail.com"><i class="fa-regular fa-envelope fa-2xl"></i></a>
+                    <a href="https://www.facebook.com/EvergreenCollectiveFound/"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
+                    <a href="https://www.instagram.com/evergreencollect/"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                    <a href="https://ca.linkedin.com/company/evergreencollective"><i class="fa-brands fa-linkedin-in fa-2xl"></i></a>
+                </div>
+            </footer>`
 
             // For some reason, the class content needs to be applied to both the wrapper and the content div
             this.innerHTML = `${navHTML}<div class="content">${this.innerHTML}</div>${footerHTML}`
