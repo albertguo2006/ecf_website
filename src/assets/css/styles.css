@@ -641,6 +641,24 @@ footer .footer__socials {
     background-image: url("../background/about-us-1.webp");
 }
 
+.about-us-2 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10vh;
+    min-height: 40vh;
+    padding: 20vh 5vw 10vh;
+}
+
+.about-us-2 > div:last-child {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+}
+
+.about-us-2 > div:last-child > h1 {
+    color: var(--ecf-green);
+}
+
 /* About Us end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
