@@ -101,6 +101,34 @@ body,
     flex: 1 0 auto;
 }
 
+.greeter-overlay {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    position: absolute;
+    bottom: 20vh;
+    left: 5vw;
+    width: 25%;
+    color: white;
+}
+
+/* Separate orange bar from content */
+.greeter-overlay > div > h1 {
+    margin: 0 0 1vh;
+}
+
+/* Add more emphasis to the text */
+.greeter-overlay h1 {
+    font-size: calc(var(--h1-size) * 1.25);
+    color: white;
+}
+
+/* Add more emphasis to the text */
+.greeter-overlay h2 {
+    font-size: calc(var(--h2-size) * 1.25);
+    color: white;
+}
+
 /* Nav start */
 /* TODO mobile nav */
 nav {
@@ -459,29 +487,6 @@ footer .footer__socials {
     background-image: url("../background/get-involved-1.webp");
 }
 
-.get-involved-1__overlay {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2vh;
-    position: absolute;
-    bottom: 20vh;
-    left: 5vw;
-    width: 20%;
-    color: white;
-}
-
-/* Add more emphasis to the text */
-.get-involved-1__overlay > h1 {
-    font-size: calc(var(--h1-size) * 1.35);
-    color: white;
-}
-
-/* Add more emphasis to the text */
-.get-involved-1__overlay > h2 {
-    font-size: calc(var(--h2-size) * 1.35);
-    color: white;
-}
-
 .get-involved-2 {
     display: flex;
     flex-direction: column;
@@ -632,7 +637,8 @@ footer .footer__socials {
 /* Get Involved end */
 
 /* About Us start */
-.about-us-1 {
+.about-us-1__bg {
+    background-image: url("../background/about-us-1.webp");
 }
 
 /* About Us end */
