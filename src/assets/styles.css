@@ -649,6 +649,13 @@ footer .footer__socials {
     padding: 20vh 5vw 10vh;
 }
 
+.about-us-2__work {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* TODO green circles around the icons */
+}
+
 .about-us-2 > div:last-child {
     display: flex;
     flex-direction: column;
