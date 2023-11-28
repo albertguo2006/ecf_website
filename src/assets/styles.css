@@ -274,7 +274,7 @@ footer {
     width: 100vw;
     padding: 5vh 0;
     color: white;
-    background-image: url("../background/footer.webp");
+    background-image: url("./img/footer.webp");
     /* bg-colour as backup */
     background-color: var(--ecf-green);
     background-position: center;
@@ -300,7 +300,7 @@ footer .footer__socials {
 
 /* Home start */
 .home-1__bg {
-    background-image: url("../background/home-1.webp");
+    background-image: url("./img/home/home-1.webp");
 }
 
 .home-1__overlay {
@@ -356,11 +356,11 @@ footer .footer__socials {
     /* These shouldn't be necessary, but JIC ig */
     width: 100vw;
     height: 100vh;
-    background-image: url("../background/home-3-post-1.webp");
+    background-image: url("./img/home/home-3-post-1.webp");
 }
 
 .home-3__bg--2 {
-    background-image: url("../background/home-3-post-2.webp");
+    background-image: url("./img/home/home-3-post-2.webp");
 }
 
 .home-3__nav {
@@ -484,7 +484,7 @@ footer .footer__socials {
 }
 
 .get-involved-1__bg {
-    background-image: url("../background/get-involved-1.webp");
+    background-image: url("./img/get-involved/get-involved-1.webp");
 }
 
 .get-involved-2 {
@@ -520,7 +520,7 @@ footer .footer__socials {
 }
 
 .get-involved-3__bg {
-    background-image: url("../background/get-involved-3.webp");
+    background-image: url("./img/get-involved/get-involved-3.webp");
 }
 
 .get-involved-3__oval {
@@ -638,7 +638,7 @@ footer .footer__socials {
 
 /* About Us start */
 .about-us-1__bg {
-    background-image: url("../background/about-us-1.webp");
+    background-image: url("./img/about-us/about-us-1.webp");
 }
 
 .about-us-2 {
