@@ -3,6 +3,7 @@
 :root {
     --ecf-green: #749b88;
     --ecf-green-rgb: 116, 155, 136;
+    --ecf-green-translucent: rgba(var(--ecf-green-rgb), 0.7);
     --ecf-red: #fc6467;
     --border-color: silver;
     --nav-height: 10vh;
@@ -530,7 +531,7 @@ footer .footer__socials {
     /* Position past left then hide overflow to achieve desired effect */
     left: -70%;
     overflow: hidden;
-    background-color: rgba(var(--ecf-green-rgb), 0.7);
+    background-color: var(--ecf-green-translucent);
     /* I literally have no idea why this works. Some horizontal and vertical radius magic ig */
     border-top-right-radius: 50% 100%;
 }
@@ -654,6 +655,20 @@ footer .footer__socials {
     flex-direction: row;
     justify-content: space-evenly;
     /* TODO green circles around the icons */
+}
+
+.about-us-2__work > div {
+    padding: 2vh;
+    border-radius: 50%;
+    background-color: var(--ecf-green-translucent);
+}
+
+.about-us-2__icons {
+    font-size: 5vh;
+    font-weight: 100;
+    color: white;
+    stroke: var(--ecf-green-translucent);
+    stroke-width: 20;
 }
 
 .about-us-2 > div:last-child {
