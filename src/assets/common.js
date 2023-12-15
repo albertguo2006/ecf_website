@@ -5,10 +5,18 @@ customElements.define(
         constructor() {
             super()
 
-            let prefix =
-                window.location.pathname.startsWith("/ecf_website/src") ? "/ecf_website/src"
-                : window.location.p.startsWith("/ecf_website") ? "/ecf_website"
-                : ""
+            /**
+             * Determines the path prefix for the page that this script is running on.
+             * @param {string} pathName The path name of the page that this script is running on.
+             * @returns {string} The path prefix for the page that this script is running on.
+             */
+            const determinePrefix = (pathName) => {
+                if (pathName.startsWith("/ecf_website/src")) return "/ecf_website/src"
+                if (pathName.startsWith("/ecf_website")) return "/ecf_website"
+                return ""
+            }
+
+            let prefix = determinePrefix(window.location.pathname)
 
             let currentPath = window.location.pathname
 
