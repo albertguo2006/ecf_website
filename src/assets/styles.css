@@ -658,17 +658,23 @@ footer .footer__socials {
 }
 
 .about-us-2__work > div {
-    padding: 2vh;
-    border-radius: 50%;
-    background-color: var(--ecf-green-translucent);
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
 
 .about-us-2__icons {
-    font-size: 5vh;
+    /* The dimension of the width and height should be the same (it's ok to denote height in terms of vw and vice versa! */
+    --icon-dimensions: 3vw;
+    width: var(--icon-dimensions);
+    height: var(--icon-dimensions);
     font-weight: 100;
     color: white;
     stroke: var(--ecf-green-translucent);
     stroke-width: 20;
+    padding: 2vh;
+    border-radius: 100%;
+    background-color: var(--ecf-green-translucent);
 }
 
 .about-us-2 > div:last-child {
