@@ -99,6 +99,7 @@ const statsObserver = new IntersectionObserver((entries) => {
                 }, timeout())
                 break
         }
+        statsObserver.unobserve(entry.target)
     })
 })
 
