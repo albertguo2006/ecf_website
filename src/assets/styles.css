@@ -687,6 +687,18 @@ footer .footer__socials {
     color: var(--ecf-green);
 }
 
+.about-us-3 {
+    display: grid;
+    /*3fr, next row of 1 fr each, but the 1fr ones probably taller than thd 3fr one?*/
+    /* TODO Fix white borders in photos by cropping them!*/
+    width: 100vw;
+    height: 100vh;
+}
+
+.about-us-bc__bg {
+    background-image: url("./img/about-us/about-us-bc.webp");
+}
+
 /* About Us end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
