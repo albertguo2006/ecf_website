@@ -647,7 +647,7 @@ footer .footer__socials {
     flex-direction: column;
     row-gap: 10vh;
     min-height: 40vh;
-    padding: 20vh 5vw 10vh;
+    padding: 20vh 5vw 0;
 }
 
 .about-us-2__work {
@@ -691,23 +691,53 @@ footer .footer__socials {
     display: grid;
     /*3fr, next row of 1 fr each, but the 1fr ones probably taller than thd 3fr one?*/
     /* TODO Fix white borders in photos by cropping them!*/
-    width: 100vw;
-    height: 100vh;
+    grid-template:
+        "bc bc bc" 80vh
+        "ab sk on" 80vh
+        / 1fr 1fr 1fr;
 }
 
-.about-us-bc__bg {
+.about-us__bc {
+    grid-area: bc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about-us__bc__bg {
     background-image: url("./img/about-us/about-us-bc.webp");
 }
 
-.about-us-ab__bg {
+.about-us__ab {
+    grid-area: ab;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about-us__ab__bg {
     background-image: url("./img/about-us/about-us-ab.webp");
 }
 
-.about-us-sk__bg {
+.about-us__sk {
+    grid-area: sk;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about-us__sk__bg {
     background-image: url("./img/about-us/about-us-sk.webp");
 }
 
-.about-us-on__bg {
+.about-us__on {
+    grid-area: on;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.about-us__on__bg {
     background-image: url("./img/about-us/about-us-on.webp");
 }
 
