@@ -699,6 +699,18 @@ footer .footer__socials {
     background-image: url("./img/about-us/about-us-bc.webp");
 }
 
+.about-us-ab__bg {
+    background-image: url("./img/about-us/about-us-ab.webp");
+}
+
+.about-us-sk__bg {
+    background-image: url("./img/about-us/about-us-sk.webp");
+}
+
+.about-us-on__bg {
+    background-image: url("./img/about-us/about-us-on.webp");
+}
+
 /* About Us end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
