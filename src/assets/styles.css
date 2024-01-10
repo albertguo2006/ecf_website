@@ -691,52 +691,77 @@ footer .footer__socials {
 }
 
 .about-us-3 {
+    --total-height: 160vh;
     display: grid;
-    /*3fr, next row of 1 fr each, but the 1fr ones probably taller than thd 3fr one?*/
-    /* TODO Fix white borders in photos by cropping them!*/
     grid-template:
-        "bc bc bc" 80vh
-        "ab sk on" 80vh
+        "bc bc bc" calc(var(--total-height) / 2)
+        "ab sk on" calc(var(--total-height) / 2)
         / 1fr 1fr 1fr;
-    color: white;
+    width: 100%;
+    height: var(--total-height);
 }
 
-.about-us__bc {
+.about-us-3__bc {
     grid-area: bc;
 }
 
-.about-us__bc__bg {
+.about-us-3__bc__bg {
     background-image: url("./img/about-us/about-us-bc.webp");
 }
 
-.about-us__ab {
+.about-us-3__ab {
     grid-area: ab;
 }
 
 /*
 The following bg classes use a manual parallax effect. This is as the default class we use does not work in this specific scenario.
  */
-.about-us__ab__bg {
+.about-us-3__ab__bg {
     background: url("./img/about-us/about-us-ab.webp") left no-repeat fixed;
-    background-size: 40% 100%;
+    background-size: calc(100vw / 3) 100%;
 }
 
-.about-us__sk {
+.about-us-3__sk {
     grid-area: sk;
 }
 
-.about-us__sk__bg {
+.about-us-3__sk__bg {
     background: url("./img/about-us/about-us-sk.webp") center no-repeat fixed;
-    background-size: 40% 100%;
+    background-size: calc(100vw / 3) 100%;
 }
 
-.about-us__on {
+.about-us-3__on {
     grid-area: on;
 }
 
-.about-us__on__bg {
+.about-us-3__on__bg {
     background: url("./img/about-us/about-us-on.webp") right no-repeat fixed;
-    background-size: 40% 100%;
+    background-size: calc(100vw / 3) 100%;
+}
+
+.about-us-3__ab,
+.about-us-3__sk,
+.about-us-3__on {
+    position: relative;
+}
+
+.about-us-3__overlay-secondary {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    --padding-horizontal: 2vw;
+    --padding-vertical: 10vh;
+    /* Enforce bottom height AND align bottom */
+    bottom: var(--padding-vertical);
+    /*
+     If the percentage is too big, the width + padding will exceed the given grid cell space.
+     For some reason, `box-sizing: border-box` does not work to prevent that.
+     */
+    padding: var(--padding-vertical) var(--padding-horizontal) 0;
+    /* Multiply --horizontal by 2 as we need to account for both left and right padding */
+    width: calc(100% - (2 * var(--padding-horizontal)));
+    color: white;
 }
 
 /* About Us end */
