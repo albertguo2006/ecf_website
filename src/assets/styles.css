@@ -51,13 +51,16 @@ body,
 }
 
 .parallax {
-    width: 100vw;
-    height: calc(110vh - var(--nav-height));
     /* Create the parallax scrolling effect. NOTE THAT WE STILL NEED A BG IMAGE! */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.parallax--full-width-height {
+    width: 100vw;
+    height: calc(110vh - var(--nav-height));
 }
 
 .orange-bar {
@@ -695,13 +698,11 @@ footer .footer__socials {
         "bc bc bc" 80vh
         "ab sk on" 80vh
         / 1fr 1fr 1fr;
+    color: white;
 }
 
 .about-us__bc {
     grid-area: bc;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .about-us__bc__bg {
@@ -710,35 +711,32 @@ footer .footer__socials {
 
 .about-us__ab {
     grid-area: ab;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
+/*
+The following bg classes use a manual parallax effect. This is as the default class we use does not work in this specific scenario.
+ */
 .about-us__ab__bg {
-    background-image: url("./img/about-us/about-us-ab.webp");
+    background: url("./img/about-us/about-us-ab.webp") left no-repeat fixed;
+    background-size: 40% 100%;
 }
 
 .about-us__sk {
     grid-area: sk;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .about-us__sk__bg {
-    background-image: url("./img/about-us/about-us-sk.webp");
+    background: url("./img/about-us/about-us-sk.webp") center no-repeat fixed;
+    background-size: 40% 100%;
 }
 
 .about-us__on {
     grid-area: on;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .about-us__on__bg {
-    background-image: url("./img/about-us/about-us-on.webp");
+    background: url("./img/about-us/about-us-on.webp") right no-repeat fixed;
+    background-size: 40% 100%;
 }
 
 /* About Us end */
