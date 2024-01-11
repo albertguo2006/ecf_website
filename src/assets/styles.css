@@ -509,13 +509,14 @@ footer .footer__socials {
     text-align: center;
 }
 
-.get-involved-2 > div:last-child {
+.get-involved-3__upcoming {
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
+    padding: 5vh 3vw;
 }
 
-.get-involved-2 > div:last-child > h1 {
+.get-involved-3__upcoming > h1 {
     color: var(--ecf-green);
 }
 
@@ -680,25 +681,31 @@ footer .footer__socials {
     background-color: var(--ecf-green-translucent);
 }
 
-.about-us-2 > div:last-child {
+.about-us-3 {
+    --header-height: 15vh;
+    --showcase-height: 80vh;
+    display: grid;
+    grid-template:
+        "ca ca ca ca ca ca" var(--header-height)
+        "bc bc bc bc bc bc" var(--showcase-height)
+        "ab ab sk sk on on" var(--showcase-height)
+        "int int int int int int" var(--header-height)
+        "tr tr tr cali cali cali" var(--showcase-height)
+        / 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: calc(2 * var(--header-height) + 3 * var(--showcase-height));
+}
+
+.about-us-3__canadian {
+    grid-area: ca;
     display: flex;
     flex-direction: column;
     row-gap: 3vh;
+    padding: 0 3vw;
 }
 
-.about-us-2 > div:last-child > h1 {
+.about-us-3__canadian > h1 {
     color: var(--ecf-green);
-}
-
-.about-us-3 {
-    --total-height: 160vh;
-    display: grid;
-    grid-template:
-        "bc bc bc" calc(var(--total-height) / 2)
-        "ab sk on" calc(var(--total-height) / 2)
-        / 1fr 1fr 1fr;
-    width: 100%;
-    height: var(--total-height);
 }
 
 .about-us-3__bc {
