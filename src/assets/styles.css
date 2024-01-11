@@ -739,10 +739,25 @@ The following bg classes use a manual parallax effect. This is as the default cl
     background-size: calc(100vw / 3) 100%;
 }
 
+.about-us-3__bc,
 .about-us-3__ab,
 .about-us-3__sk,
 .about-us-3__on {
     position: relative;
+}
+
+.about-us-3__overlay-primary {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    --padding-vertical: 10vh;
+    /* Enforce bottom height AND align bottom */
+    bottom: var(--padding-vertical);
+    padding: var(--padding-vertical) 3vw 0;
+    width: 40vw;
+    box-sizing: border-box;
+    color: white;
 }
 
 .about-us-3__overlay-secondary {
