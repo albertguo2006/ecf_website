@@ -512,7 +512,7 @@ footer .footer__socials {
 .get-involved-3__upcoming {
     display: flex;
     flex-direction: column;
-    row-gap: 3vh;
+    row-gap: 2vh;
     padding: 5vh 3vw;
 }
 
@@ -690,22 +690,33 @@ footer .footer__socials {
         "bc bc bc bc bc bc" var(--showcase-height)
         "ab ab sk sk on on" var(--showcase-height)
         "int int int int int int" var(--header-height)
-        "tr tr tr cali cali cali" var(--showcase-height)
+        "tr tr tr us us us" var(--showcase-height)
         / 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
     height: calc(2 * var(--header-height) + 3 * var(--showcase-height));
+    padding: 0 0 5vh;
+}
+
+.about-us-3__canadian,
+.about-us-3__international {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    padding: 0 3vw;
+}
+
+.about-us-3__canadian > h1,
+.about-us-3__international > h1 {
+    color: var(--ecf-green);
 }
 
 .about-us-3__canadian {
     grid-area: ca;
-    display: flex;
-    flex-direction: column;
-    row-gap: 3vh;
-    padding: 0 3vw;
 }
 
-.about-us-3__canadian > h1 {
-    color: var(--ecf-green);
+.about-us-3__international {
+    grid-area: int;
+    padding: 5vh 3vw;
 }
 
 .about-us-3__bc {
@@ -746,14 +757,34 @@ The following bg classes use a manual parallax effect. This is as the default cl
     background-size: calc(100vw / 3) 100%;
 }
 
+.about-us-3__tr {
+    grid-area: tr;
+}
+
+.about-us-3__tr__bg {
+    background: url("./img/about-us/about-us-tr.webp") left no-repeat fixed;
+    background-size: calc(100vw / 2) 100%;
+}
+
+.about-us-3__us {
+    grid-area: us;
+}
+
+.about-us-3__us__bg {
+    background: url("./img/about-us/about-us-us.webp") right no-repeat fixed;
+    background-size: calc(100vw / 2) 100%;
+}
+
 .about-us-3__bc,
 .about-us-3__ab,
 .about-us-3__sk,
-.about-us-3__on {
+.about-us-3__on,
+.about-us-3__tr,
+.about-us-3__us {
     position: relative;
 }
 
-.about-us-3__overlay-primary {
+.about-us-3__overlay-single {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -767,7 +798,7 @@ The following bg classes use a manual parallax effect. This is as the default cl
     color: white;
 }
 
-.about-us-3__overlay-secondary {
+.about-us-3__overlay-triple {
     position: absolute;
     display: flex;
     flex-direction: column;
