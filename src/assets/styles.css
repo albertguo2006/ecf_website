@@ -694,7 +694,6 @@ footer .footer__socials {
         / 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 100%;
     height: calc(2 * var(--header-height) + 3 * var(--showcase-height));
-    padding: 0 0 5vh;
 }
 
 .about-us-3__canadian,
@@ -784,7 +783,7 @@ The following bg classes use a manual parallax effect. This is as the default cl
     position: relative;
 }
 
-.about-us-3__overlay-single {
+.about-us-3__overlay {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -798,15 +797,9 @@ The following bg classes use a manual parallax effect. This is as the default cl
     color: white;
 }
 
-.about-us-3__overlay-triple {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    row-gap: 2vh;
+.about-us-3__overlay--secondary {
     --padding-horizontal: 2vw;
     --padding-vertical: 10vh;
-    /* Enforce bottom height AND align bottom */
-    bottom: var(--padding-vertical);
     /*
      If the percentage is too big, the width + padding will exceed the given grid cell space.
      For some reason, `box-sizing: border-box` does not work to prevent that.
@@ -814,7 +807,6 @@ The following bg classes use a manual parallax effect. This is as the default cl
     padding: var(--padding-vertical) var(--padding-horizontal) 0;
     /* Multiply --horizontal by 2 as we need to account for both left and right padding */
     width: calc(100% - (2 * var(--padding-horizontal)));
-    color: white;
 }
 
 /* About Us end */
