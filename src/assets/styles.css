@@ -9,6 +9,8 @@
     --nav-height: 10vh;
     --h1-size: 3vw;
     --h2-size: 1.4vw;
+    --h3-size: 1.4vw;
+    --h4-size: 1.05vw;
     --arbitrary-card-min-width: 250px;
 }
 
@@ -26,6 +28,16 @@ a,
 h2 {
     font-family: "Quicksand", sans-serif;
     font-size: var(--h2-size);
+}
+
+h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--h3-size);
+}
+
+h4 {
+    font-family: "Quicksand", sans-serif;
+    font-size: var(--h4-size);
 }
 
 a {
@@ -131,6 +143,10 @@ body,
 .greeter-overlay h2 {
     font-size: calc(var(--h2-size) * 1.25);
     color: white;
+}
+
+.greeter-overlay--40 {
+    width: 40%;
 }
 
 /* Nav start */
@@ -484,8 +500,6 @@ footer .footer__socials {
 /* Home end */
 
 /* Get Involved start */
-.get-involved-1 {
-}
 
 .get-involved-1__bg {
     background-image: url("./img/get-involved/get-involved-1.webp");
@@ -804,6 +818,66 @@ The following bg classes use a manual parallax effect. This is as the default cl
 }
 
 /* About Us end */
+
+/* BC start */
+.bc-1__bg {
+    background-image: url("./img/about-us/ca/bc/bc-1.webp");
+}
+
+.bc-2__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1vh;
+    padding: 5vh 5vw;
+}
+
+.bc-2__header > h1 {
+    color: var(--ecf-green);
+}
+
+.bc-2__members {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2vh;
+    padding: 0 5vw 5vh;
+}
+
+.bc-2__member {
+    position: relative;
+    /* Width and height need to be the same to ensure a square */
+    width: 30vw;
+    min-width: 200px;
+    aspect-ratio: 1 / 1;
+}
+
+.bc-2__member > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bc-2__overlay {
+    position: absolute;
+    bottom: 0;
+    height: 6vw;
+    min-height: 40px;
+    width: 100%;
+    padding: 2vh 2vw;
+    box-sizing: border-box;
+    color: white;
+    background-color: var(--ecf-green-translucent);
+}
+
+.bc-2__introduction {
+    display: none;
+}
+
+/* Make introduction slide up upon hover of overlay*/
+.bc-2__overlay:hover {
+    /*height: 100%;*/
+}
+
+/* BC end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
 .lazy-load {
