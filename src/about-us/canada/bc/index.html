@@ -21,6 +21,7 @@
         <!-- Our stylesheet and scripts -->
         <link href="../../../assets/styles.css" rel="stylesheet" />
         <script defer src="../../../assets/common.js"></script>
+        <script defer src="./bc.js"></script>
     </head>
     <body>
         <ecf-wrapper>
@@ -39,39 +40,31 @@
                     <h1>OUR TEAM</h1>
                 </div>
                 <div class="bc-2__members">
-                    <div class="bc-2__member">
-                        <img src="../../../assets/img/about-us/ca/bc/meredith.webp" alt="BC member 1" loading="lazy" />
-                        <div class="bc-2__overlay">
-                            <div class="bc-2__name">
-                                <h3>MEREDITH WANG</h3>
-                                <h4>Executive Director</h4>
-                            </div>
-                            <div class="bc-2__introduction">
-                                <div class="white-bar white-bar--thin"></div>
-                                <h4>
-                                    A senior attending Uhill Secondary, Meredith is ecstatic to serve as the National
-                                    Executive Director of ECF. She started getting involved with climate action
-                                    initiatives in her elementary school days and has been passionate about the
-                                    environment ever since. Outside of ECF, Meredith enjoys hiking in nearby mountains,
-                                    indulging in board game cafés with friends, and rewatching the Office.
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bc-2__member">
-                        <img src="../../../assets/img/about-us/ca/bc/finn.webp" alt="BC member 2" loading="lazy" />
-                        <div class="bc-2__overlay">
-                            <h3>FINN LIU</h3>
-                            <h4>Vice President</h4>
-                        </div>
-                    </div>
-                    <div class="bc-2__member">
-                        <img src="../../../assets/img/about-us/ca/bc/angelina.webp" alt="BC member 3" loading="lazy" />
-                        <div class="bc-2__overlay">
-                            <h3>ANGELINA YEUNG</h3>
-                            <h4>Secretary</h4>
-                        </div>
-                    </div>
+                    <member-card
+                        name="Meredith Wang"
+                        position="National Executive Director"
+                        intro="A senior attending Uhill Secondary, Meredith is ecstatic to serve as the National
+                            Executive Director of ECF. She started getting involved with climate action
+                            initiatives in her elementary school days and has been passionate about the
+                            environment ever since. Outside of ECF, Meredith enjoys hiking in nearby mountains,
+                            indulging in board game cafés with friends, and rewatching the Office."
+                    ></member-card>
+                    <member-card
+                        name="Finn Liu"
+                        position="National Co-Director, Internal"
+                        intro="In his senior year at Fraser Heights Secondary School, Finn is looking forward to another
+                            successful year with ECF, serving as a Co-director. Through building awareness on prominent
+                            climate issues by directly connecting with members of communities impacted, he recognizes
+                            the importance of advocating for a cleaner, safer environment. Outside of his many
+                            leadership commitments, Finn can be found breathless from fencing, passively avoiding
+                            attacks from his cat Zuko, and playing brown noise as the only music he listens to when
+                            studying."
+                    ></member-card>
+                    <member-card
+                        name="Angelina Yeung"
+                        position="National Co-Director, External"
+                        intro="Currently a senior, Ange Yeung is proud to serve as the treasurer for ECF. As climate change continues to cause environmental devastation across the globe, Ange hopes to use ECF as an outlet to platform the impact of climate change on places that are ignored by mainstream media. Outside of ECF, you can find Ange scouring book stores for poetry chapbooks, searching for art exhibits, or writing."
+                    ></member-card>
                 </div>
             </div>
         </ecf-wrapper>

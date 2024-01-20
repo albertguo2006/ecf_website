@@ -4,7 +4,9 @@ customElements.define(
     class extends HTMLElement {
         constructor() {
             super()
+        }
 
+        connectedCallback() {
             /**
              * Determines the path prefix for the page that this script is running on.
              * @param {string} pathName The path name of the page that this script is running on.
