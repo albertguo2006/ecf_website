@@ -848,8 +848,12 @@ The following bg classes use a manual parallax effect. This is as the default cl
 .bc-2__members {
     display: flex;
     flex-direction: row;
-    column-gap: 2vh;
-    padding: 0 5vw 5vh;
+    flex-wrap: wrap;
+    column-gap: 2vw;
+    row-gap: 2vh;
+    padding: 0 1vw 5vh 3vw;
+    /* Maybe figure a way out to not make the last element align to middle if it's the only element in the row? */
+    justify-content: space-evenly;
 }
 
 .bc-2__member {
