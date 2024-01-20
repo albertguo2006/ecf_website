@@ -55,12 +55,12 @@ customElements.define(
                         <div class="nav-dropdown">
                             <div class="nav-dropdown__border">
                                 <div class="nav-dropdown__content">
-                                    <a href="${prefix}/about-us/Canada/AB/">AB - Canada</a>
-                                    <a href="${prefix}/about-us/Canada/BC/">BC - Canada</a>
-                                    <a href="${prefix}/about-us/Canada/ON/">ON - Canada</a>
-                                    <a href="${prefix}/about-us/Canada/SK/">SK - Canada</a>
-                                    <a href="${prefix}/about-us/Turkey/">Turkey</a>
-                                    <a href="${prefix}/about-us/USA/CA/">CA - USA</a>
+                                    <a href="${prefix}/about-us/canada/ab/">AB - Canada</a>
+                                    <a href="${prefix}/about-us/canada/bc/">BC - Canada</a>
+                                    <a href="${prefix}/about-us/canada/on/">ON - Canada</a>
+                                    <a href="${prefix}/about-us/canada/sk/">SK - Canada</a>
+                                    <a href="${prefix}/about-us/turkey/">Turkey</a>
+                                    <a href="${prefix}/about-us/usa/ca/">CA - USA</a>
                                 </div>
                             </div>
                         </div>
