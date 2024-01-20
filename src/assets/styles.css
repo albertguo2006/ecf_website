@@ -85,6 +85,16 @@ body,
     width: 20vw;
 }
 
+.white-bar {
+    width: 10vw;
+    height: 0;
+    border-top: 0.7vh solid white;
+}
+
+.white-bar--thin {
+    border-top: 0.3vh solid white;
+}
+
 .transparent-button {
     width: 25vw;
     color: black;
@@ -848,6 +858,8 @@ The following bg classes use a manual parallax effect. This is as the default cl
     width: 30vw;
     min-width: 200px;
     aspect-ratio: 1 / 1;
+    /* Overflow hidden so that we can hide the introductions */
+    overflow: hidden;
 }
 
 .bc-2__member > img {
@@ -858,23 +870,41 @@ The following bg classes use a manual parallax effect. This is as the default cl
 
 .bc-2__overlay {
     position: absolute;
-    bottom: 0;
-    height: 6vw;
-    min-height: 40px;
+    bottom: -80%;
+    height: 100%;
     width: 100%;
     padding: 2vh 2vw;
     box-sizing: border-box;
-    color: white;
+    /* Needed to create an effect where the overlay slides up */
+    transition: bottom 750ms ease-out;
     background-color: var(--ecf-green-translucent);
+    color: white;
+}
+
+/* Unveils the previously hidden intro box */
+.bc-2__member:hover > .bc-2__overlay {
+    bottom: 0;
+}
+
+.bc-2__name {
+    height: 20%;
+    transition: height 850ms ease-out;
+}
+
+.bc-2__member:hover .bc-2__name {
+    height: 15%;
 }
 
 .bc-2__introduction {
-    display: none;
+    /* This 85% is based off the changed height of .bc-2__name, not the initial un-hovered height */
+    height: 85%;
+    padding-right: 1vw;
+    overflow: scroll;
+    scrollbar-color: black var(--ecf-green-translucent);
 }
 
-/* Make introduction slide up upon hover of overlay*/
-.bc-2__overlay:hover {
-    /*height: 100%;*/
+.bc-2__introduction > h4 {
+    line-height: 1.5;
 }
 
 /* BC end */
