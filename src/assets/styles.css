@@ -28,6 +28,7 @@ a,
 h2 {
     font-family: "Quicksand", sans-serif;
     font-size: var(--h2-size);
+    font-weight: lighter;
 }
 
 h3 {
@@ -38,6 +39,7 @@ h3 {
 h4 {
     font-family: "Quicksand", sans-serif;
     font-size: var(--h4-size);
+    font-weight: lighter;
 }
 
 a {
@@ -903,8 +905,17 @@ The following bg classes use a manual parallax effect. This is as the default cl
     /* This 85% is based off the changed height of .bc-2__name, not the initial un-hovered height */
     height: 85%;
     padding-right: 1vw;
-    overflow: scroll;
+    overflow: auto;
     scrollbar-color: black var(--ecf-green-translucent);
+    /* This needs to be here or the scroll bar looks obnoxiously big on chromium browsers (at least in testing)*/
+    scrollbar-width: thin;
+}
+
+@supports (-moz-appearance: none) {
+    .bc-2__introduction {
+        /* Undo the thinning done as the scroll bar looks ridiculously small if the scroll bar width is set to thin */
+        scrollbar-width: initial;
+    }
 }
 
 .bc-2__introduction > h4 {
