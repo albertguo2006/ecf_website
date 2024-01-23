@@ -23,7 +23,7 @@
         <!-- Our stylesheet and scripts -->
         <link href="../../../assets/styles.css" rel="stylesheet" />
         <script defer src="../../../assets/common.js"></script>
-        <script defer src="./bc.js"></script>
+        <script defer src="../../member-card.js"></script>
     </head>
     <body>
         <ecf-wrapper>
@@ -41,7 +41,8 @@
                     <div class="orange-bar"></div>
                     <h1>OUR TEAM</h1>
                 </div>
-                <div class="bc-2__members">
+                <!-- TODO fix card alignment issues -->
+                <member-cards>
                     <member-card
                         name="Meredith Wang"
                         position="National Executive Director"
@@ -50,7 +51,7 @@
                     <member-card
                         name="Finn Liu"
                         position="National Co-Director, Internal"
-                        intro="In his senior year at Fraser Heights Secondary School, Finn is looking forward to another successful year with ECF, serving as a Co-director. Through building awareness on prominent climate issues by directly connecting with members of communities impacted, he recognizes the importance of advocating for a cleaner, safer environment. Outside of his many leadership commitments, Finn can be found breathless from fencing, passively avoiding attacks from his cat Zuko, and playing brown noise as the only music he listens to when studying. "
+                        intro="In his senior year at Fraser Heights Secondary School, Finn is looking forward to another successful year with ECF, serving as a Co-director. Through building awareness on prominent climate issues by directly connecting with members of communities impacted, he recognizes the importance of advocating for a cleaner, safer environment. Outside of his many leadership commitments, Finn can be found breathless from fencing, passively avoiding attacks from his cat Zuko, and playing brown noise as the only music he listens to when studying."
                     ></member-card>
                     <member-card
                         name="Enya Fang"
@@ -61,14 +62,66 @@
                     <member-card
                         name="Angelina Yeung"
                         position="National Co-Director, External"
-                        intro="Currently a senior, Ange Yeung is proud to serve as the treasurer for ECF. As climate change continues to cause environmental devastation across the globe, Ange hopes to use ECF as an outlet to platform the impact of climate change on places that are ignored by mainstream media. Outside of ECF, you can find Ange scouring book stores for poetry chapbooks, searching for art exhibits, or writing."
+                        intro="Currently a senior, Ange Yeung is proud to serve as the National Director of Operations for Evergreen Collective Foundation. They hope ECF continues growing as a platform to spread awareness on climate change, especially focusing on its impact on places ignored by mainstream media. Outside of ECF, you can find Ange scouring book stores for poetry chapbooks, searching for art exhibits, or crocheting while indulging in badly written rom coms."
+                    ></member-card>
+                    <member-card
+                        name="Vivien Zhang"
+                        position="Director of Communications"
+                        intro="Vivien is a senior at University Hill Secondary School. She is thrilled to serve as the secretary for the Evergreen Collective Foundation. Vivien wishes to make a contribution to environmental protection and raise awareness of climate change. Outside of ECF, she enjoys golfing and watching the Simpsons. Welcome to ECF!"
+                    ></member-card>
+                    <member-card
+                        name="Albert Guo"
+                        position="Director of Website/IT"
+                        intro="Entering his senior year at Fraser Heights Secondary School, Albert is honoured to be serving as the website director for Evergreen Collective. He is passionate about protecting the environment and advocating solutions to environmental issues. Outside of hugging trees, Albert can be found obsessing over his Tetris score, procrastinating over homework, or going for a jog at his local park."
+                    ></member-card>
+                    <member-card
+                        name="Anny Chen"
+                        position="Director of Marketing"
+                        intro="Anny is a grade 12 student at University Hill Secondary. Anny is honoured to serve as the marketing director for Evergreen Foundation this year. She has a passion for the environment dating back to elementary school. She is also looking forward to working with ECF to expand environmental awareness to more people. Outside of ECF, she can be found working on debate, studying, and playing badminton."
+                    ></member-card>
+                    <member-card
+                        name="Shira Rubin"
+                        position="Editor in Chief"
+                        intro="Shira is a senior at University Hill Secondary. She is excited to serve as the Editor in Chief at the Evergreen Collective Foundation for the third year! Shira is passionate about advocating for climate change and mental health awareness for youth, as well as for proper healthcare, housing, and education for high schoolers in British Columbia. Outside of ECF, she enjoys watching rocket launches and bingeing old horror movies."
+                    ></member-card>
+                    <member-card
+                        name="Shubham Sharma"
+                        position="Director of Fundraising"
+                        intro="Shubham is a Grade 11 student at Southridge School, This is Shubham’s 2nd year as the Director of Fundraiser for ECF and hopes to organise more fundraisers and increase their success based on past experiences at the foundation. He hopes to be better able to help out his community with service and leadership. Shubham’s passions include Russian Waltz and Jazz and recently, a new hobby in gardening."
+                    ></member-card>
+                    <member-card
+                        name="Margaret Xun"
+                        position="Creative Director"
+                        intro=" As a senior at University Hill secondary, Margaret is thrilled to combine her passions for design and advocating for the environment as ECF’s Graphic Designer. She hopes to be able to highlight the importance of climate activism through her work at ECF. Outside of ECF, Margaret enjoys drawing while watching sitcoms she’s already seen far too many times."
+                    ></member-card>
+                    <member-card
+                        name="June Zhang"
+                        position="Director of Social Media"
+                        intro="As a senior at University Hill Secondary School, June is delighted to serve as the Social Media Representative at ECF. She’s fond of making efforts to help out the environment and towards climate change. Outside of ECF, June enjoys replaying Taylor Swift songs and baking pastries in her kitchen. June had made many wonderful memories with the rest of the ECF team in the past years and cannot wait for more to come."
+                    ></member-card>
+                    <member-card
+                        name="Amy Wren"
+                        position="Social Media Coordinator"
+                        intro="In their sophomore year at Crofton House School, Amy is honoured to be serving as the Social Media Coordinator for ECF. Driven by a deep passion for environmental activism, Amy works in hopes of raising public awareness about critical climate issues and connecting directly with communities impacted by environmental challenges. Beyond of their commitments at ECF, Amy's spends their time pampering her menagerie of pets: from some very cute geckos to silly shrimp."
+                    ></member-card>
+                    <member-card
+                        mame="Maggie Lu"
+                        position="Fundraising Coordinator"
+                        intro="Going into her sophomore year at Crofton House School, Maggie is delighted to be the fundraising coordinator for ECF. Ever since she was in elementary school, Maggie has been doing a lot for the environment, including picking up trash every lunch. Through ECF, she hopes to spread light on the variety of environmental challenges the world is currently facing and to create positive change. Outside of ECF, you can find Maggie reading her books, baking macarons and cookies, or listening to Stray Kids."
+                    ></member-card>
+                    <!-- No intro can be found for Serena -->
+                    <member-card name="Serena Zhang" position="Outreach Coordinator" intro=""></member-card>
+                    <member-card
+                        name="Kenneth Goh"
+                        position="Website Coordinator"
+                        intro="Currently a grade 12 student in University Hill Secondary School, Kenneth is thrilled to serve with ECF as the Website Coordinator. With the increase in local and international environmental related issues, Kenneth believes that taking action against climate change is necessary to improve the livelihoods of those affected. In his natural environment, Kenneth can be observed attempting to code, going to the gym, and playing chess with other unfortunate victims."
                     ></member-card>
                     <member-card
                         name="Test Card"
                         position="To test the scrollbar of the member card component"
                         intro="ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices dui sapien eget mi proin sed libero enim sed faucibus turpis in eu mi bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed"
                     ></member-card>
-                </div>
+                </member-cards>
             </div>
         </ecf-wrapper>
     </body>

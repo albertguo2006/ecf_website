@@ -161,7 +161,7 @@ body,
     width: 40%;
 }
 
-/* Nav start */
+/* Nav component start */
 /* TODO mobile nav */
 nav {
     display: flex;
@@ -295,9 +295,9 @@ This also has the added benefit of still showing the dropdown contents even when
     border-top: 0;
 }
 
-/* Nav end */
+/* Nav component end */
 
-/* Footer start */
+/* Footer component start */
 /* TODO minor adjustments for mobile footer*/
 footer {
     display: flex;
@@ -328,9 +328,9 @@ footer .footer__socials {
     justify-content: space-evenly;
 }
 
-/* Footer end*/
+/* Footer component end*/
 
-/* Home start */
+/* Home page start */
 .home-1__bg {
     background-image: url("./img/home/home-1.webp");
 }
@@ -509,9 +509,9 @@ footer .footer__socials {
     color: var(--ecf-green);
 }
 
-/* Home end */
+/* Home page end */
 
-/* Get Involved start */
+/* Get Involved page start */
 
 .get-involved-1__bg {
     background-image: url("./img/get-involved/get-involved-1.webp");
@@ -659,9 +659,9 @@ footer .footer__socials {
     background-color: white;
 }
 
-/* Get Involved end */
+/* Get Involved page end */
 
-/* About Us start */
+/* About Us page start */
 .about-us-1__bg {
     background-image: url("./img/about-us/about-us-1.webp");
 }
@@ -829,9 +829,87 @@ The following bg classes use a manual parallax effect. This is as the default cl
     width: calc(100% - (2 * var(--padding-horizontal)));
 }
 
-/* About Us end */
+/* About Us page end */
 
-/* BC start */
+/* Member card component start */
+.member-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2vw;
+    row-gap: 2vh;
+    padding: 0 1vw 5vh 3vw;
+    /* Maybe figure a way out to not make the last element align to middle if it's the only element in the row? */
+    justify-content: space-evenly;
+}
+
+.member-card {
+    position: relative;
+    /* Width and height need to be the same to ensure a square */
+    width: 30vw;
+    min-width: 200px;
+    aspect-ratio: 1 / 1;
+    /* Overflow hidden so that we can hide the introductions */
+    overflow: hidden;
+}
+
+.member-card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-card__overlay {
+    position: absolute;
+    bottom: -80%;
+    height: 100%;
+    width: 100%;
+    padding: 2vh 2vw;
+    box-sizing: border-box;
+    /* Needed to create an effect where the overlay slides up */
+    transition: bottom 750ms ease-out;
+    background-color: var(--ecf-green-translucent);
+    color: white;
+}
+
+/* Unveils the previously hidden intro box */
+.member-card:hover > .member-card__overlay {
+    bottom: 0;
+}
+
+.member-card__name {
+    height: 20%;
+    transition: height 850ms ease-out;
+}
+
+.member-card:hover .member-card__name {
+    height: 15%;
+}
+
+.member-card__introduction {
+    /* This 85% is based off the changed height of .bc-2__name, not the initial un-hovered height */
+    height: 85%;
+    padding-right: 1vw;
+    overflow: auto;
+    scrollbar-color: black var(--ecf-green-translucent);
+    /* This needs to be here or the scroll bar looks obnoxiously big on chromium browsers (at least in testing)*/
+    scrollbar-width: thin;
+}
+
+@supports (-moz-appearance: none) {
+    .member-card__introduction {
+        /* Undo the thinning done as the scroll bar looks ridiculously small if the scroll bar width is set to thin */
+        scrollbar-width: initial;
+    }
+}
+
+.member-card__introduction > h4 {
+    line-height: 1.5;
+}
+
+/* Member card component end */
+
+/* BC page start */
 .bc-1__bg {
     background-image: url("./img/about-us/ca/bc/bc-1.webp");
 }
@@ -847,82 +925,7 @@ The following bg classes use a manual parallax effect. This is as the default cl
     color: var(--ecf-green);
 }
 
-.bc-2__members {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 2vw;
-    row-gap: 2vh;
-    padding: 0 1vw 5vh 3vw;
-    /* Maybe figure a way out to not make the last element align to middle if it's the only element in the row? */
-    justify-content: space-evenly;
-}
-
-.bc-2__member {
-    position: relative;
-    /* Width and height need to be the same to ensure a square */
-    width: 30vw;
-    min-width: 200px;
-    aspect-ratio: 1 / 1;
-    /* Overflow hidden so that we can hide the introductions */
-    overflow: hidden;
-}
-
-.bc-2__member > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.bc-2__overlay {
-    position: absolute;
-    bottom: -80%;
-    height: 100%;
-    width: 100%;
-    padding: 2vh 2vw;
-    box-sizing: border-box;
-    /* Needed to create an effect where the overlay slides up */
-    transition: bottom 750ms ease-out;
-    background-color: var(--ecf-green-translucent);
-    color: white;
-}
-
-/* Unveils the previously hidden intro box */
-.bc-2__member:hover > .bc-2__overlay {
-    bottom: 0;
-}
-
-.bc-2__name {
-    height: 20%;
-    transition: height 850ms ease-out;
-}
-
-.bc-2__member:hover .bc-2__name {
-    height: 15%;
-}
-
-.bc-2__introduction {
-    /* This 85% is based off the changed height of .bc-2__name, not the initial un-hovered height */
-    height: 85%;
-    padding-right: 1vw;
-    overflow: auto;
-    scrollbar-color: black var(--ecf-green-translucent);
-    /* This needs to be here or the scroll bar looks obnoxiously big on chromium browsers (at least in testing)*/
-    scrollbar-width: thin;
-}
-
-@supports (-moz-appearance: none) {
-    .bc-2__introduction {
-        /* Undo the thinning done as the scroll bar looks ridiculously small if the scroll bar width is set to thin */
-        scrollbar-width: initial;
-    }
-}
-
-.bc-2__introduction > h4 {
-    line-height: 1.5;
-}
-
-/* BC end */
+/* BC page end */
 
 /* Lazy loading NEEDS to be at the bottom to override all other styles */
 .lazy-load {
