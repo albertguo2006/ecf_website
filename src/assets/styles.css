@@ -64,12 +64,18 @@ body,
     height: 100%;
 }
 
+/* TODO Fix broken parallax effect on chromium (there is a horizontal scroll bar)*/
 .parallax {
     /* Create the parallax scrolling effect. NOTE THAT WE STILL NEED A BG IMAGE! */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* Fixes for chromium */
+    /*overflow-x: hidden;*/
+    /*overflow-y: scroll;*/
+    /*perspective: 1px;*/
+    /*perspective-origin: 0 0;*/
 }
 
 .parallax--full-width-height {
