@@ -14,6 +14,7 @@
     --arbitrary-card-min-width: 250px;
 }
 
+/* Here's your reminder that 100vw does not work as expected on chrome (the scrollbar width is not factored into calculations) */
 * {
     margin: 0;
     padding: 0;
@@ -64,22 +65,15 @@ body,
     height: 100%;
 }
 
-/* TODO Fix broken parallax effect on chromium (there is a horizontal scroll bar)*/
 .parallax {
-    /* Create the parallax scrolling effect. NOTE THAT WE STILL NEED A BG IMAGE! */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* Fixes for chromium */
-    /*overflow-x: hidden;*/
-    /*overflow-y: scroll;*/
-    /*perspective: 1px;*/
-    /*perspective-origin: 0 0;*/
 }
 
 .parallax--full-width-height {
-    width: 100vw;
+    width: 100%;
     height: calc(110vh - var(--nav-height));
 }
 
@@ -173,7 +167,7 @@ nav {
     display: flex;
     flex-direction: row;
     height: var(--nav-height);
-    width: 100vw;
+    width: 100%;
     background-color: white;
     align-items: center;
 }
@@ -309,7 +303,7 @@ footer {
     display: flex;
     flex-direction: column;
     row-gap: 7vh;
-    width: 100vw;
+    width: 100%;
     padding: 5vh 0;
     color: white;
     background-image: url("./img/footer.webp");
@@ -384,16 +378,13 @@ footer .footer__socials {
 
 .home-3 {
     position: relative;
-    width: 100vw;
+    width: 100%;
 }
 
 .home-3__bg {
     display: flex;
     /* Flex shrink needed to ensure that the images will take up the full screen and not share it*/
     flex-shrink: 0;
-    /* These shouldn't be necessary, but JIC ig */
-    width: 100vw;
-    height: 100vh;
     background-image: url("./img/home/home-3-post-1.webp");
 }
 
@@ -844,7 +835,7 @@ The following bg classes use a manual parallax effect. This is as the default cl
     flex-wrap: wrap;
     column-gap: 2vw;
     row-gap: 2vh;
-    width: 100vw;
+    width: 100%;
     padding: 0 1vw 5vh 3vw;
     box-sizing: border-box;
     /* Maybe figure a way out to not make the last element align to middle if it's the only element in the row? */
