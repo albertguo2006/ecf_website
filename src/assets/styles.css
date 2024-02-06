@@ -831,23 +831,20 @@ The following bg classes use a manual parallax effect. This is as the default cl
 /* Member card component start */
 .member-cards {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 2vw;
+    flex-flow: row wrap;
     row-gap: 2vh;
     width: 100%;
-    padding: 0 1vw 5vh 3vw;
-    box-sizing: border-box;
-    /* Maybe figure a way out to not make the last element align to middle if it's the only element in the row? */
-    justify-content: space-evenly;
+    padding-bottom: 5vh;
+    justify-content: center;
 }
 
 .member-card {
     position: relative;
     /* Width and height need to be the same to ensure a square */
     width: 30vw;
-    min-width: 200px;
+    min-width: 300px;
     aspect-ratio: 1 / 1;
+    margin: 0 1vw 0;
     /* Overflow hidden so that we can hide the introductions */
     overflow: hidden;
 }
