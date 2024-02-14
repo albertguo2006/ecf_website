@@ -6,12 +6,22 @@
     --ecf-green-translucent: rgba(var(--ecf-green-rgb), 0.7);
     --ecf-red: #fc6467;
     --border-color: silver;
-    --nav-height: 10vh;
-    --h1-size: 3vw;
-    --h2-size: 1.4vw;
-    --h3-size: 1.4vw;
-    --h4-size: 1.05vw;
+    --nav-height: 8vh;
+    --h1-size: 2em;
+    --h2-size: 1em;
+    --h3-size: 1em;
+    --h4-size: 0.85em;
     --arbitrary-card-min-width: 250px;
+}
+
+@media only screen and (min-width: 75em) {
+    :root {
+        --nav-height: 10vh;
+        --h1-size: 3em;
+        --h2-size: 1.4em;
+        --h3-size: 1.4em;
+        --h4-size: 1.05em;
+    }
 }
 
 /* Here's your reminder that 100vw does not work as expected on chrome (the scrollbar width is not factored into calculations) */
@@ -174,125 +184,140 @@ nav {
 
 nav .nav__logo {
     /* Ensure that height does not exceed var(--nav-height) */
-    height: calc(var(--nav-height) - 2vh);
+    height: calc(var(--nav-height) - 3vh);
     padding: 0 0 0 2vw;
     color: black;
 }
 
-nav > ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* No grid gap in favour of borders for each individual li */
-    /* width of 70% to ensure some spacing between the logo and everything else */
-    width: 70%;
-    height: 100%;
-    /* The nice and handy align left */
-    margin: auto 0 auto auto;
-}
-
-nav > ul > li {
-    /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
-    position: relative;
-    /*
-    This specific border behaviour causes weird artifacting, but I think I prefer it this way.
-    No specific reason why these border sizes were chose, just ensure that they are the same
-    Update: After fixing some other styles, the artifacting seems to be mostly gone.
-    */
-    border-left: 0.15vw solid var(--border-color);
-}
-
-nav li:first-child {
-    /* We don't want a left divider on the left most element */
-    border-left: 0;
-}
-
-nav li:last-child {
-    /* Remove the left divider between the last and second last element as the last is expected to be a different colour */
-    border-left: 0;
-}
-
-nav li:last-child > a {
-    /* This is expected to be the donate button */
-    background-color: var(--ecf-green);
-}
-
-nav li:last-child > a:hover {
-    /* This is expected to be the donate button */
-    background-color: black;
-}
-
-nav > ul > li a {
-    /* Just positioning for nav links */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: black;
-}
-
-nav li > a:hover {
-    color: var(--ecf-green);
-}
-
-nav > ul > li > a > .nav__current-indicator {
-    position: absolute;
-    /* We want the indicator to be at the bottom of the nav */
-    bottom: 0;
-    width: 100%;
-    height: 1vh;
-    background-color: var(--ecf-green);
-}
-
-/* Some code to change the display of the up/down caret depending on whether it's parent is being hovered on. */
-nav .nav__about-caret > .fa-caret-up {
-    display: none;
-}
-
-nav li:hover > .nav-dropdown,
-nav li:hover .nav__about-caret > .fa-caret-up {
+.nav__hamburger {
     display: block;
+    margin: auto 3vw auto auto;
 }
 
-nav li:hover .nav__about-caret > .fa-caret-down {
+nav > ul {
     display: none;
 }
 
-/* Some stuff to affect the display of the dropdown/caret icon */
-.nav-dropdown {
-    display: none;
-    position: absolute;
-    width: 100%;
-}
+@media only screen and (min-width: 75em) {
+    .nav__hamburger {
+        display: none;
+    }
 
-/*
-We use separate elements for border and content because we need them to be a different colour
-While the border is white, the gap between the content isn't.
-Trying to put these two requirements in the same element would be a pain, and it's probably just easier to use two divs.
-This also has the added benefit of still showing the dropdown contents even when the mouse is slightly outside of it.
-*/
-.nav-dropdown__border {
-    display: flex;
-    flex-direction: column;
-    padding: 0 0.75vw;
-    background-color: white;
-}
+    nav > ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        /* No grid gap in favour of borders for each individual li */
+        /* width of 70% to ensure some spacing between the logo and everything else */
+        width: 70%;
+        height: 100%;
+        /* The nice and handy align left */
+        margin: auto 0 auto auto;
+    }
 
-.nav-dropdown__content {
-    display: flex;
-    flex-direction: column;
-}
+    nav > ul > li {
+        /* The position: relative is important! Without this, the width 100% will not work for the nav dropdown*/
+        position: relative;
+        /*
+        This specific border behaviour causes weird artifacting, but I think I prefer it this way.
+        No specific reason why these border sizes were chose, just ensure that they are the same
+        Update: After fixing some other styles, the artifacting seems to be mostly gone.
+        */
+        border-left: 0.15vw solid var(--border-color);
+    }
 
-.nav-dropdown__content > a {
-    /* Slightly off left effect */
-    padding: 0.75vw;
-    justify-content: left;
-    border-top: 0.15rem solid var(--border-color);
-}
+    nav li:first-child {
+        /* We don't want a left divider on the left most element */
+        border-left: 0;
+    }
 
-.nav-dropdown__content > a:first-child {
-    /* Remove the top border on the first element */
-    border-top: 0;
+    nav li:last-child {
+        /* Remove the left divider between the last and second last element as the last is expected to be a different colour */
+        border-left: 0;
+    }
+
+    nav li:last-child > a {
+        /* This is expected to be the donate button */
+        background-color: var(--ecf-green);
+    }
+
+    nav li:last-child > a:hover {
+        /* This is expected to be the donate button */
+        background-color: black;
+    }
+
+    nav > ul > li a {
+        /* Just positioning for nav links */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: black;
+    }
+
+    nav li > a:hover {
+        color: var(--ecf-green);
+    }
+
+    nav > ul > li > a > .nav__current-indicator {
+        position: absolute;
+        /* We want the indicator to be at the bottom of the nav */
+        bottom: 0;
+        width: 100%;
+        height: 1vh;
+        background-color: var(--ecf-green);
+    }
+
+    /* Some code to change the display of the up/down caret depending on whether it's parent is being hovered on. */
+    nav .nav__about-caret > .fa-caret-up {
+        display: none;
+    }
+
+    nav li:hover > .nav-dropdown,
+    nav li:hover .nav__about-caret > .fa-caret-up {
+        display: block;
+    }
+
+    nav li:hover .nav__about-caret > .fa-caret-down {
+        display: none;
+    }
+
+    /* Some stuff to affect the display of the dropdown/caret icon */
+    .nav-dropdown {
+        display: none;
+        position: absolute;
+        width: 100%;
+    }
+
+    /*
+    We use separate elements for border and content because we need them to be a different colour
+    While the border is white, the gap between the content isn't.
+    Trying to put these two requirements in the same element would be a pain, and it's probably just easier to use two divs.
+    This also has the added benefit of still showing the dropdown contents even when the mouse is slightly outside of it.
+    */
+    .nav-dropdown__border {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0.75vw;
+        background-color: white;
+    }
+
+    .nav-dropdown__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-dropdown__content > a {
+        /* Slightly off left effect */
+        padding: 0.75vw;
+        justify-content: left;
+        border-top: 0.15rem solid var(--border-color);
+    }
+
+    .nav-dropdown__content > a:first-child {
+        /* Remove the top border on the first element */
+        border-top: 0;
+    }
 }
 
 /* Nav component end */
