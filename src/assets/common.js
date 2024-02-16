@@ -41,9 +41,10 @@ customElements.define(
                 <a href="${prefix === "" ? "/" : `${prefix}/`}">
                     <img class="nav__logo" src="${prefix}/assets/icon.ico" alt="Evergreen Collective's logo" loading="lazy">
                 </a>
-                <div class="nav__hamburger">
-                    <i class="fa-solid fa-bars fa-2xl"></i>
-                </div>
+                <input type="checkbox" id="nav-toggle">
+                <label class="nav__hamburger" for="nav-toggle">
+                        <i class="fa-solid fa-bars fa-2xl"></i>
+                </label>
                 <ul id="nav-list">
                     <li><a href="${prefix === "" ? "/" : `${prefix}/`}">HOME</a></li>
                     <li><a href="${prefix}/get-involved/">GET INVOLVED</a></li>

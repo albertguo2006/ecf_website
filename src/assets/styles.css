@@ -194,8 +194,28 @@ nav .nav__logo {
     margin: auto 3vw auto auto;
 }
 
+nav #nav-toggle {
+    display: none;
+}
+
 nav > ul {
     display: none;
+}
+
+#nav-toggle:checked + label {
+    display: none;
+}
+
+#nav-toggle:checked ~ ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* No grid gap in favour of borders for each individual li */
+    /* width of 70% to ensure some spacing between the logo and everything else */
+    width: 70%;
+    height: 100%;
+    /* The nice and handy align left */
+    margin: auto 0 auto auto;
 }
 
 @media only screen and (min-width: 75em) {
