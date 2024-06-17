@@ -1,5 +1,14 @@
 /* The following css file follows the BEM naming convention (https://getbem.com/naming/) */
 /* Note that if magic numbers are used, chances is that there's no special meaning behind it and that it just looks nice */
+
+/* Import fonts and icons */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+
+@import url("./fontawesome-free-6.5.2-web/css/fontawesome.min.css");
+@import url("./fontawesome-free-6.5.2-web/css/brands.min.css");
+@import url("./fontawesome-free-6.5.2-web/css/regular.min.css");
+@import url("./fontawesome-free-6.5.2-web/css/solid.min.css");
+
 :root {
     --ecf-green: #749b88;
     --ecf-green-rgb: 116, 155, 136;
